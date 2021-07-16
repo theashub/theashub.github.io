@@ -1,17 +1,75 @@
+<!-- theAShub Website-->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-
-    <title>My page title</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
-
-    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
   </head>
+<style>
+
+
+/* For the bottom button links */
+bop {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:black
+}
+
+.columna {
+  float: left;
+  width: 100%;
+}
+
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .columna {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.carda {
+  padding: 16px;
+  text-align: center;
+  background-color: #111111;
+}
+
+.fa {
+  padding: 15px;
+  font-size: 30px;
+  width: 25px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 20px;
+  border-radius:10px;
+ }
+
+.fa:hover {
+    opacity: 0.9;
+}
+
+.fa-instagram:hover {
+  background:black;
+  color: white;
+}
+.fa-instagram {
+  background:white;
+  color: black;
+}
+
+.fa-telegram:hover {
+  background: black;
+  color: white;
+}
+
+.fa-telegram {
+  background: white;
+  color: black;
+}
+</style>
 
   <body>
     <!-- Here is our main header that is used across all the pages of our website -->
@@ -74,9 +132,16 @@
     </main>
 
     <!-- And here is our main footer that is used across all the pages of our website -->
-
+<bop>
+  <div class="columna">
+    <div class="carda">
+      <h3 style="color:white">Feel free to stay connect with us for more updates</h3>
+      <a href="https://www.instagram.com/anurags7478/" class="fa fa-instagram"></a><a href="https://theashub.blogspot.com/" class="fa fa-web"></a>
+      </div>
+  </div>
+</bop>
     <footer>
-      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+   <center><p>©Copyright 2050 by nobody. All rights reversed.</p></center>
     </footer>
 
   </body>
