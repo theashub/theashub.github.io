@@ -1,7 +1,7 @@
 <!--theAShub Website-->
-<!--Header Section-->
- <title>theAShub</title>
+<title>theAShub</title>
 <style>
+/* Header Section CSS */
 *{padding: 0; margin: 0; box-sizing: border-box;}
 header {
 	text-align: center;
@@ -156,14 +156,16 @@ img {
     margin: auto;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .column-66,
   .column-33 {
-    width: 80%;
+    width: 100%;
     text-align: center;
   }
   img {
-    margin: auto;
+    display: block;
+    height: auto;
+    max-width: 100%;
   }
 }
 
@@ -282,15 +284,8 @@ img {
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-	<style>
-    @media screen and (max-width: 400px) {
-  .client {
-    width: 100%;
-    display: block;
-  }
-}
-
-    #client{
+<style>
+#client{
 	width:100%;
     background: white;
 	padding: 50px 0px;
@@ -400,7 +395,17 @@ border: 2px solid black;
 background:transparent;
 color:black;
 }
-
+@media screen and (max-width: 480px) {
+  .client-box {
+    width: 100%;
+    text-align: center;
+    display: block;
+    height: auto;
+    }
+    .client-box p{
+	text-align: center;
+	}
+}
 	</style>
 
 
@@ -424,7 +429,7 @@ color:black;
 	<h3>theAShub Store</h3>
 	</div>
         <!--details/comment------>
-		<p>We bring top creative profiles in this section. So go through this, grab your matter and get connect with them as per need and enjoy their works also.  </p>
+		<p style="align:center">We bring top creative profiles in this section. So go through this, grab your matter and get connect with them as per need and enjoy their works also.  </p>
 		<!--btn--------->
 		<a href="https://theashubstore.blogspot.com/"><button class="buttonP"><span>Visit Now</span></button></a>
         </div>
