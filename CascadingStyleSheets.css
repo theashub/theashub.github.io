@@ -1,3 +1,38 @@
+<!--Main Posts Section-->
+<style>
+.mainpostssec {max-width: 1300px;margin: 40px auto;padding: 0 15px;}
+.mainpostssec-grid {display: grid;grid-template-columns: 1.1fr 1.4fr 1.1fr;gap: 20px;align-items: stretch;}
+/* SKELETON */
+.skeleton {  background: linear-gradient(90deg,#eee 25%,#e0e0e0 37%,#eee 63%);  background-size: 400% 100%;  animation: shimmer 1.4s infinite;  border-radius: 6px;}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+/* MAIN POST */
+.insights-main {  display: flex;  flex-direction: column;  justify-content: center; /* vertical center */height: 100%;}
+
+.insights-main img:hover{
+  transform:scale(1.05);}
+.insights-main img { width: 100%;  max-height: 320px;  object-fit: cover;  border-radius: 8px;
+ transition:.35s;}
+.insights-main h3 {  margin: 12px 0 0;}
+.insights-main h3 a {  font-size: 16px;  text-decoration: none;  color: #212428;}
+/* SIDE POSTS */
+.side-list {  display: flex;flex-direction: column;gap: 16px;}
+.side-post {  display: flex;  gap: 10px;}
+.side-post img {  width: 90px;  height: 65px;  object-fit: cover;  border-radius: 6px;}
+.side-post h4 {  margin: 0 0 4px;font-size: 16px;}
+.side-post h4 a {  text-decoration: none;color: #212428;}
+.side-post span {  font-size: 12px;  color: #888;}
+/* RESPONSIVE */
+@media(max-width:800px){
+  .mainpostssec-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
 <!--AspirantsSection-->
 <style>
 .aspirants-section{
