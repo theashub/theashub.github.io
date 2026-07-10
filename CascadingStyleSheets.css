@@ -1,5 +1,4 @@
-<!--Main Posts Section-->
-<style>
+/*Main Posts Section*/
 .mainpostssec {max-width: 1300px;margin: 40px auto;padding: 0 15px;}
 .mainpostssec-grid {display: grid;grid-template-columns: 1.1fr 1.4fr 1.1fr;gap: 20px;align-items: stretch;}
 /* SKELETON */
@@ -31,10 +30,8 @@
     grid-template-columns: 1fr;
   }
 }
-</style>
 
-<!--AspirantsSection-->
-<style>
+/*AspirantsSection*/
 .aspirants-section{
   max-width:1300px;
   margin:15px auto;
@@ -137,4 +134,3 @@
     grid-template-columns:1fr;
   }
 }
-</style>
