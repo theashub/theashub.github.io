@@ -1,109 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>theAShub | The Complete Place for Learners and Aspirants</title>
-  <meta name="description"
-        content="theAShub is a complete educational and career platform dedicated to empowering learners and aspirants with everything they need for smart, effective learning and professional growth. Explore careers and opportunities, discover educational options, access a wide range of learning resources, and find guidance, support, and timely updates – all in one place to help you learn smarter, grow faster, and succeed with confidence.">
-  <meta name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#ffffff">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    theAShub | The Complete Place for Learners and Aspirants
+  </title>
+
+  <meta
+    name="description"
+    content="theAShub is a complete educational and career platform dedicated to empowering learners and aspirants with everything they need for smart, effective learning and professional growth. Explore careers and opportunities, discover educational options, access a wide range of learning resources, and find guidance, support, and timely updates – all in one place to help you learn smarter, grow faster, and succeed with confidence.">
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <meta
+    name="theme-color"
+    content="#ffffff">
+
+  <meta
+    name="author"
+    content="theAShub">
+
+  <meta
+    name="format-detection"
+    content="telephone=no">
+
+
+  <!-- =====================================================
+       FAVICON
+       ===================================================== -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600-rw/image1787579067">
+
+
+  <!-- =====================================================
+       OPEN GRAPH
+       ===================================================== -->
+
+  <meta
+    property="og:type"
+    content="website">
+
+  <meta
+    property="og:title"
+    content="theAShub | The Complete Place for Learners and Aspirants">
+
+  <meta
+    property="og:description"
+    content="theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.">
+
+  <meta
+    property="og:url"
+    content="https://www.theashub.in/">
+
+  <meta
+    property="og:site_name"
+    content="theAShub">
+
+  <meta
+    property="og:image"
+    content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600-rw/image1787579067">
+
+
+  <!-- =====================================================
+       TWITTER
+       ===================================================== -->
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image">
+
+  <meta
+    name="twitter:title"
+    content="theAShub | The Complete Place for Learners and Aspirants">
+
+  <meta
+    name="twitter:description"
+    content="theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.">
+
+  <meta
+    name="twitter:image"
+    content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600-rw/image1787579067">
+
+
+  <!-- =====================================================
+       CANONICAL
+       ===================================================== -->
+
+  <link
+    rel="canonical"
+    href="https://www.theashub.in/">
+
+
+  <!-- =====================================================
+       CSS
+       ===================================================== -->
+
   <style>
-    html,body{width:100%;max-width:100%;min-width:0;margin:0;padding:0;overflow-x:hidden;}
-    *,
-    *::before,
-    *::after{box-sizing:border-box;}
-    #ashub-landing{
-      --text:#212428;
-      --border:#fac926;
+
+    /* =====================================================
+       RESET
+       ===================================================== */
+
+    html,
+    body{
       width:100%;
       max-width:100%;
+      min-width:0;
+
+      margin:0;
+      padding:0;
+
+      overflow-x:hidden;
+    }
+
+    *,
+    *::before,
+    *::after{
+      box-sizing:border-box;
+    }
+
+
+    /* =====================================================
+       MAIN LANDING PAGE
+       ===================================================== */
+
+    #ashub-landing{
+
+      --text:#212428;
+      --border:#fac926;
+
+      width:100%;
+      max-width:100%;
+
       min-height:100vh;
+
       margin:0;
       padding:32px 16px 40px;
+
       background:transparent;
+
       color:var(--text);
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
         Arial,
-        sans-serif;}
-    /* =========================================================
-       MAIN CONTENT WIDTH       ========================================================= */
-    .ashub-wrap{width:100%;max-width:680px;margin:0 auto;text-align:center;}
-    /* =========================================================
-       LOGO       ========================================================= */
-    .ashub-logo{width:100%;
-      margin:0 0 14px;}
-    .ashub-logo img{display:block;width:88px;height:88px;max-width:100%;margin:0 auto;object-fit:contain;border-radius:50%;}
-    /* =========================================================
-       TITLE       ========================================================= */
-    .ashub-title{width:100%;margin:0;color:#212428;font-size:clamp(24px,4vw,30px);line-height:1.25;font-weight:700;overflow-wrap:anywhere;}
-    /* =========================================================
-       DESCRIPTION       ========================================================= */
-    .ashub-description{width:100%;max-width:580px;margin:10px auto 22px;color:#212428;font-size:clamp(15px,2.5vw,17px);line-height:1.65;overflow-wrap:anywhere;}
-    /* =========================================================
-       SOCIAL ICONS       ========================================================= */
-    .ashub-social{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;width:100%;margin:0 0 26px;}
-    .ashub-social a{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:42px;height:42px;border:1px solid var(--border);border-radius:50%;background:#fff;color:#212428;text-decoration:none;transition:transform .18s ease,background .18s ease;}
-    .ashub-social a:hover{transform:translateY(-2px);}
-    .ashub-social svg{display:block;width:19px;height:19px;max-width:100%;}
-    .ashub-social svg path{fill:currentColor;}
-    .ashub-social svg .outline{fill:none;stroke:currentColor;}
-    .ashub-social svg .white{fill:#fff;}
-    /* =========================================================
-       LATEST POSTS       ========================================================= */
-    .ashub-latest{width:100%;max-width:100%;margin:0;text-align:left;}
-    #ashub-posts{width:100%;max-width:100%;}
-    /* =========================================================
-       POST CARD       ========================================================= */
-    .ashub-post{
+        sans-serif;
+    }
+
+
+    /* =====================================================
+       CONTENT WRAPPER
+       ===================================================== */
+
+    .ashub-wrap{
+
+      width:100%;
+      max-width:680px;
+
+      margin:0 auto;
+
+      text-align:center;
+    }
+
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+    .ashub-logo{
+
+      width:100%;
+
+      margin:0 0 14px;
+    }
+
+    .ashub-logo img{
+
+      display:block;
+
+      width:88px;
+      height:88px;
+
+      max-width:100%;
+
+      margin:0 auto;
+
+      object-fit:contain;
+
+      border-radius:50%;
+    }
+
+
+    /* =====================================================
+       TITLE
+       ===================================================== */
+
+    .ashub-title{
+
+      width:100%;
+
+      margin:0;
+
+      color:#212428;
+
+      font-size:clamp(24px,4vw,30px);
+
+      line-height:1.25;
+
+      font-weight:700;
+
+      overflow-wrap:anywhere;
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+       ===================================================== */
+
+    .ashub-description{
+
+      width:100%;
+      max-width:580px;
+
+      margin:10px auto 22px;
+
+      color:#212428;
+
+      font-size:clamp(15px,2.5vw,17px);
+
+      line-height:1.65;
+
+      overflow-wrap:anywhere;
+    }
+
+
+    /* =====================================================
+       SOCIAL ICONS
+       ===================================================== */
+
+    .ashub-social{
+
       display:flex;
+
       align-items:center;
+      justify-content:center;
+
+      flex-wrap:wrap;
+
+      gap:10px;
+
+      width:100%;
+
+      margin:0 0 26px;
+    }
+
+    .ashub-social a{
+
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      flex:0 0 auto;
+
+      width:42px;
+      height:42px;
+
+      border:1px solid var(--border);
+
+      border-radius:50%;
+
+      background:#fff;
+
+      color:#212428;
+
+      text-decoration:none;
+
+      transition:
+        transform .18s ease,
+        background .18s ease;
+    }
+
+    .ashub-social a:hover{
+
+      transform:translateY(-2px);
+
+      background:#fffdf3;
+    }
+
+    .ashub-social svg{
+
+      display:block;
+
+      width:19px;
+      height:19px;
+
+      max-width:100%;
+    }
+
+    .ashub-social svg path{
+
+      fill:currentColor;
+    }
+
+    .ashub-social svg .outline{
+
+      fill:none;
+
+      stroke:currentColor;
+    }
+
+    .ashub-social svg .white{
+
+      fill:#fff;
+    }
+
+
+    /* =====================================================
+       LATEST POSTS
+       ===================================================== */
+
+    .ashub-latest{
+
       width:100%;
       max-width:100%;
+
+      margin:0;
+
+      text-align:left;
+    }
+
+    #ashub-posts{
+
+      width:100%;
+      max-width:100%;
+    }
+
+
+    /* =====================================================
+       POST CARD
+       ===================================================== */
+
+    .ashub-post{
+
+      display:flex;
+
+      align-items:center;
+
+      width:100%;
+      max-width:100%;
+
       min-height:78px;
+
       margin:0 0 10px;
+
       padding:8px;
+
       border:1px solid var(--border);
+
       border-radius:12px;
+
       background:#fff;
+
       color:#212428;
+
       text-decoration:none;
-      overflow:hidden;transition:transform .18s ease;}
+
+      overflow:hidden;
+
+      transition:transform .18s ease;
+    }
+
     .ashub-post:hover{
-      transform:translateY(-1px);}
-    /* =========================================================
-       POST IMAGE       ========================================================= */
+
+      transform:translateY(-1px);
+    }
+
+
+    /* =====================================================
+       POST IMAGE
+       ===================================================== */
+
     .ashub-post-image{
+
       flex:0 0 72px;
+
       width:72px;
       height:56px;
+
       margin-right:12px;
-      border-radius:8px;overflow:hidden;background:#fac926;}
-    .ashub-post-image img{ display:block; width:100%;height:100%;object-fit:cover;}
-    /* =========================================================
-       POST TITLE ========================================================= */
-    .ashub-post-title{flex:1 1 auto;min-width:0;max-width:100%;margin:0;
+
+      border-radius:8px;
+
+      overflow:hidden;
+
+      background:#fac926;
+    }
+
+    .ashub-post-image img{
+
+      display:block;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+    }
+
+
+    /* =====================================================
+       POST TITLE
+       ===================================================== */
+
+    .ashub-post-title{
+
+      flex:1 1 auto;
+
+      min-width:0;
+      max-width:100%;
+
+      margin:0;
+
       color:#212428;
+
       font-size:15px;
+
       line-height:1.45;
+
       font-weight:700;
-      overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
-    /* =========================================================
-       POST ARROW       ========================================================= */
+
+      overflow:hidden;
+
+      display:-webkit-box;
+
+      -webkit-box-orient:vertical;
+
+      -webkit-line-clamp:2;
+    }
+
+
+    /* =====================================================
+       POST ARROW
+       ===================================================== */
+
     .ashub-post-arrow{
+
       flex:0 0 auto;
+
       margin-left:8px;
-      color:#fac926;font-size:20px;line-height:1;}
-    /* =========================================================
-       SKELETON LOADER
-       ========================================================= */
+
+      color:#fac926;
+
+      font-size:20px;
+
+      line-height:1;
+    }
+
+
+    /* =====================================================
+       SKELETON
+       ===================================================== */
 
     .ashub-skeleton{
+
       display:flex;
 
       align-items:center;
@@ -114,9 +488,11 @@
       min-height:78px;
 
       margin:0 0 10px;
+
       padding:8px;
 
       border:1px solid var(--border);
+
       border-radius:12px;
 
       background:#fff;
@@ -125,6 +501,7 @@
     }
 
     .ashub-skeleton-image{
+
       flex:0 0 72px;
 
       width:72px;
@@ -140,11 +517,14 @@
     }
 
     .ashub-skeleton-content{
+
       flex:1 1 auto;
+
       min-width:0;
     }
 
     .ashub-skeleton-title{
+
       display:block;
 
       width:90%;
@@ -160,10 +540,12 @@
     }
 
     .ashub-skeleton-title.short{
+
       width:65%;
     }
 
     .ashub-skeleton-meta{
+
       display:block;
 
       width:35%;
@@ -177,6 +559,7 @@
     }
 
     @keyframes ashubPulse{
+
       0%,
       100%{
         opacity:.55;
@@ -188,16 +571,18 @@
     }
 
 
-    /* =========================================================
-       LOADING / EMPTY MESSAGE
-       ========================================================= */
+    /* =====================================================
+       LOADING MESSAGE
+       ===================================================== */
 
     .ashub-loading{
+
       width:100%;
 
       padding:20px;
 
       border:1px solid var(--border);
+
       border-radius:12px;
 
       background:#fff;
@@ -210,12 +595,14 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        CONTINUE BUTTON
-       ========================================================= */
+       ===================================================== */
 
     .ashub-continue{
+
       display:flex;
+
       align-items:center;
       justify-content:center;
 
@@ -225,19 +612,25 @@
       min-height:52px;
 
       margin:18px 0 0;
+
       padding:14px 18px;
 
-      border-radius:12px;
       border:1px solid #fac926;
+
+      border-radius:12px;
+
       background:transparent;
+
       color:#212428;
 
       font-size:17px;
+
       line-height:1.3;
 
       font-weight:700;
 
       text-align:center;
+
       text-decoration:none;
 
       transition:
@@ -246,97 +639,130 @@
     }
 
     .ashub-continue:hover{
+
       transform:translateY(-1px);
+
+      background:#fffdf3;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        FOOTER
-       ========================================================= */
+       ===================================================== */
+
     .ashub-footer{
+
       width:100%;
+
       margin:24px 0 0;
+
       color:#212428;
+
       font-size:11px;
+
       line-height:1.7;
+
       text-align:center;
-      overflow-wrap:anywhere;}
+
+      overflow-wrap:anywhere;
+    }
+
     .ashub-footer a{
+
       color:#212428;
+
       text-decoration:none;
     }
-    /* =========================================================
+
+
+    /* =====================================================
        TABLET
-       ========================================================= */
+       ===================================================== */
 
     @media (max-width:768px){
 
       #ashub-landing{
+
         padding:28px 14px 34px;
       }
 
       .ashub-wrap{
+
         max-width:680px;
       }
 
       .ashub-description{
+
         max-width:600px;
       }
 
     }
 
 
-    /* =========================================================
+    /* =====================================================
        MOBILE
-       ========================================================= */
+       ===================================================== */
 
     @media (max-width:480px){
 
       #ashub-landing{
+
         padding:22px 12px 30px;
       }
 
       .ashub-logo{
+
         margin-bottom:12px;
       }
 
       .ashub-logo img{
+
         width:74px;
         height:74px;
       }
 
       .ashub-title{
+
         font-size:24px;
       }
 
       .ashub-description{
+
         margin:8px auto 20px;
 
         font-size:15px;
+
         line-height:1.55;
       }
 
       .ashub-social{
+
         gap:8px;
+
         margin-bottom:22px;
       }
 
       .ashub-social a{
+
         width:38px;
         height:38px;
       }
 
       .ashub-social svg{
+
         width:17px;
         height:17px;
       }
 
       .ashub-post{
+
         min-height:72px;
+
         padding:7px;
       }
 
       .ashub-post-image{
+
         flex:0 0 62px;
 
         width:62px;
@@ -346,21 +772,28 @@
       }
 
       .ashub-post-title{
+
         font-size:14px;
+
         line-height:1.4;
       }
 
       .ashub-post-arrow{
+
         margin-left:6px;
+
         font-size:18px;
       }
 
       .ashub-skeleton{
+
         min-height:72px;
+
         padding:7px;
       }
 
       .ashub-skeleton-image{
+
         flex:0 0 62px;
 
         width:62px;
@@ -370,7 +803,9 @@
       }
 
       .ashub-continue{
+
         min-height:50px;
+
         padding:13px 15px;
 
         font-size:14px;
@@ -379,56 +814,68 @@
     }
 
 
-    /* =========================================================
+    /* =====================================================
        VERY SMALL PHONES
-       ========================================================= */
+       ===================================================== */
 
     @media (max-width:360px){
 
       #ashub-landing{
+
         padding:18px 9px 26px;
       }
 
       .ashub-logo img{
+
         width:68px;
         height:68px;
       }
 
       .ashub-title{
+
         font-size:22px;
       }
 
       .ashub-description{
+
         font-size:14px;
       }
 
       .ashub-social{
+
         gap:6px;
       }
 
       .ashub-social a{
+
         width:36px;
         height:36px;
       }
 
       .ashub-social svg{
+
         width:16px;
         height:16px;
       }
 
       .ashub-post-image{
+
         flex-basis:56px;
+
         width:56px;
         height:47px;
       }
 
       .ashub-skeleton-image{
+
         flex-basis:56px;
+
         width:56px;
         height:47px;
       }
 
       .ashub-post-title{
+
         font-size:13px;
       }
 
@@ -437,24 +884,78 @@
   </style>
 
 </head>
+
+
 <body>
-<div id="ashub-landing">
+
+
+  <!-- =====================================================
+       LANDING PAGE
+       ===================================================== -->
+
+  <div id="ashub-landing">
+
     <div class="ashub-wrap">
-      <!-- LOGO -->
+
+
+      <!-- =================================================
+           LOGO
+           ================================================= -->
+
       <div class="ashub-logo">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600-rw/image1787579067" width="88" height="88" alt="theAShub Logo" loading="eager">
+
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600-rw/image1787579067"
+          width="88"
+          height="88"
+          alt="theAShub Logo"
+          loading="eager">
+
       </div>
-      <!-- TITLE -->
+
+
+      <!-- =================================================
+           TITLE
+           ================================================= -->
+
       <h1 class="ashub-title">
+
         The Complete Place for Learners and Aspirants
+
       </h1>
-      <!-- DESCRIPTION -->
+
+
+      <!-- =================================================
+           DESCRIPTION
+           ================================================= -->
+
       <p class="ashub-description">
-      theAShub is <b>a complete educational and career platform</b> dedicated <i><b>to empowering learners and aspirants</b></i> with everything they need for smart, effective learning and professional growth. Explore <b>careers and opportunities, discover educational options</b>, access <i>a wide range of learning resources, and find guidance, support, and timely updates</i> – all in one place to help you learn smarter, grow faster, and succeed with confidence.</p>
-      <!-- ===================================================
-           SOCIAL LINKS           =================================================== -->
+
+        theAShub is
+        <b>a complete educational and career platform</b>
+        dedicated
+        <i><b>to empowering learners and aspirants</b></i>
+        with everything they need for smart, effective learning
+        and professional growth. Explore
+        <b>careers and opportunities, discover educational options</b>,
+        access
+        <i>a wide range of learning resources, and find guidance,
+        support, and timely updates</i>
+        – all in one place to help you learn smarter,
+        grow faster, and succeed with confidence.
+
+      </p>
+
+
+      <!-- =================================================
+           SOCIAL LINKS
+           ================================================= -->
+
       <div class="ashub-social">
+
+
         <!-- INSTAGRAM -->
+
         <a
           href="https://www.instagram.com/theashub/"
           target="_blank"
@@ -614,9 +1115,9 @@
       </div>
 
 
-      <!-- ===================================================
+      <!-- =================================================
            LATEST POSTS
-           =================================================== -->
+           ================================================= -->
 
       <section class="ashub-latest">
 
@@ -712,391 +1213,373 @@
               <b class="ashub-skeleton-title short"></b>
 
               <small class="ashub-skeleton-meta"></small>
+
             </div>
+
           </div>
+
+
         </div>
+
       </section>
-      <!-- CONTINUE -->
+
+
+      <!-- =================================================
+           CONTINUE BUTTON
+           ================================================= -->
+
       <a
         class="ashub-continue"
         href="https://www.theashub.in/"
         target="_blank"
         rel="noopener noreferrer">
+
         Continue to Website
+
       </a>
-      <!-- FOOTER -->
+
+
+      <!-- =================================================
+           FOOTER
+           ================================================= -->
+
       <footer class="ashub-footer">
-        © 
+
+        ©
+
         <a
           href="https://www.theashub.in/"
           target="_blank"
           rel="noopener noreferrer">
+
           theAShub
+
         </a>
-        | Owner & Founder: Anurag Singh
+
+        &nbsp;|&nbsp;
+
+        Owner &amp; Founder: Anurag Singh
+
       </footer>
+
+
     </div>
+
   </div>
-  <!-- =======================================================
-       JAVASCRIPT       ======================================================= -->
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
   <script>
+
   (function(){
+
     "use strict";
-    /* =======================================================
-       SEO      ======================================================= */
-    var SEO_TITLE =
-      "theAShub | The Complete Place for Learners and Aspirants";
-
-    var SEO_DESCRIPTION =
-      "theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.";
-
-    var SITE_URL =
-      "https://www.theashub.in/";
-
-    var SHARE_IMAGE =
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600/image1787579067";
-
-    var FAVICON_URL =
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600/image1787579067";
 
 
-    /* =======================================================
-       PAGE TITLE      ======================================================= */
-    document.title = SEO_TITLE;
-    /* =======================================================
-       META HELPER       ======================================================= */
-    function setMeta(name,content,property){
-      var selector;
-      if(property){
-        selector =
-          'meta[property="' + property + '"]';
-      }else{
-        selector =
-          'meta[name="' + name + '"]';
-      }
-      var el =
-        document.head.querySelector(selector);
-      if(!el){
-        el =
-          document.createElement("meta");
-        if(property){
-          el.setAttribute(
-            "property",
-            property
-          );
-        }else{
-          el.setAttribute(
-            "name",
-            name
-          );
-        }
-        document.head.appendChild(el);
-      }
-      el.setAttribute(
-        "content",
-        content
-      );
-    }
-    /* =======================================================
-       SEO META
-       ======================================================= */
-    setMeta(
-      "description",
-      SEO_DESCRIPTION
-    );
-    setMeta(
-      "robots",
-      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    );
-    setMeta(
-      "googlebot",
-      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    );
-    setMeta(
-      "author",
-      "theAShub"
-    );
-    setMeta(
-      "theme-color",
-      "#ffffff"
-    );
-    setMeta(
-      "format-detection",
-      "telephone=no"
-    );
-    /* =======================================================
-       CANONICAL       ======================================================= */
-    var canonical =
-      document.head.querySelector(
-        'link[rel="canonical"]'
-      );
-    if(!canonical){
-      canonical =
-        document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(
-        canonical
-      );
-    }
-    canonical.href = SITE_URL;
-    /* =======================================================
-       FAVICON ======================================================= */
-    if(
-      FAVICON_URL &&
-      FAVICON_URL.indexOf("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600/image1787579067") !== 0
-    ){
-      var favicon =
-        document.head.querySelector(
-          'link[rel="icon"]'
-        );
-      if(!favicon){
-        favicon =
-          document.createElement("link");
-        favicon.rel = "icon";
-        favicon.type = "image/png";
-        document.head.appendChild(
-          favicon
-        );
-      }
-      favicon.href = FAVICON_URL;
-    }
-    /* =======================================================
-       OPEN GRAPH ======================================================= */
-    setMeta(
-      "",
-      "website",
-      "og:type"
-    );
-    setMeta(
-      "",
-      SEO_TITLE,
-      "og:title"
-    );
-    setMeta(
-      "",
-      SEO_DESCRIPTION,
-      "og:description"
-    );
-    setMeta(
-      "",
-      SITE_URL,
-      "og:url"
-    );
-    setMeta(
-      "",
-      "theAShub",
-      "og:site_name"
-    );
-    /* =======================================================
-       TWITTER
-       ======================================================= */
+    /* =====================================================
+       BLOGGER FEED
+       ===================================================== */
 
-    setMeta(
-      "twitter:card",
-      "summary_large_image"
-    );
-
-    setMeta(
-      "twitter:title",
-      SEO_TITLE
-    );
-
-    setMeta(
-      "twitter:description",
-      SEO_DESCRIPTION
-    );
-
-    /* =======================================================
-       SHARE IMAGE ======================================================= */
-
-    if(
-      SHARE_IMAGE &&
-      SHARE_IMAGE.indexOf("YOUR-") !== 0
-    ){
-
-      setMeta(
-        "",
-        SHARE_IMAGE,
-        "og:image"
-      );
-
-      setMeta(
-        "twitter:image",
-        SHARE_IMAGE
-      );
-    }
-    /* =======================================================
-      BLOGGER FEED  ======================================================= */
     var count = 10;
+
     var feed =
       "https://www.theashub.in/feeds/posts/default" +
       "?alt=json-in-script" +
       "&max-results=" +
       count +
       "&callback=ashubLatestPosts";
-    /* =======================================================
-       BLOGGER CALLBACK ======================================================= */
-    window.ashubLatestPosts =
-      function(data){
-        var container =
-          document.getElementById(
-            "ashub-posts"
-          );
-        if(!container){
-          return;
-        }
-        if(
-          !data ||
-          !data.feed ||
-          !data.feed.entry ||
-          !data.feed.entry.length
-        ){
-          container.innerHTML =
-            '<div class="ashub-loading">' +
-            'No Latest Posts Available.' +
-            '</div>';
-          return;
-        }
-        var fragment =
-          document.createDocumentFragment();
-        data.feed.entry.forEach(
-          function(entry){
-            /* ---------------------------------------------
-               TITLE
-               --------------------------------------------- */
-            var title =
-              entry.title &&
-              entry.title.$t
-                ? entry.title.$t
-                : "Untitled";
-            /* ---------------------------------------------
-               URL
-               --------------------------------------------- */
-            var url = "#";
-            if(entry.link){
-              for(
-                var i = 0;
-                i < entry.link.length;
-                i++
-              ){
-                if(
-                  entry.link[i].rel ===
-                  "alternate"
-                ){
-                  url =
-                    entry.link[i].href;
-                  break;
-                }
-              }
-            }
-            /* ---------------------------------------------
-               IMAGE
-               --------------------------------------------- */
-            var imageUrl = "";
-            if(
-              entry.media$thumbnail &&
-              entry.media$thumbnail.url
+
+
+    /* =====================================================
+       BLOGGER CALLBACK
+       ===================================================== */
+
+    window.ashubLatestPosts = function(data){
+
+      var container =
+        document.getElementById(
+          "ashub-posts"
+        );
+
+
+      if(!container){
+
+        return;
+
+      }
+
+
+      /* ===================================================
+         NO POSTS
+         =================================================== */
+
+      if(
+        !data ||
+        !data.feed ||
+        !data.feed.entry ||
+        !data.feed.entry.length
+      ){
+
+        container.innerHTML =
+          '<div class="ashub-loading">' +
+          'No Latest Posts Available.' +
+          '</div>';
+
+        return;
+
+      }
+
+
+      /* ===================================================
+         CREATE POSTS
+         =================================================== */
+
+      var fragment =
+        document.createDocumentFragment();
+
+
+      data.feed.entry.forEach(
+        function(entry){
+
+
+          /* ===============================================
+             TITLE
+             =============================================== */
+
+          var title =
+            entry.title &&
+            entry.title.$t
+              ? entry.title.$t
+              : "Untitled";
+
+
+          /* ===============================================
+             POST URL
+             =============================================== */
+
+          var url = "#";
+
+
+          if(entry.link){
+
+            for(
+              var i = 0;
+              i < entry.link.length;
+              i++
             ){
-              imageUrl =
-                entry.media$thumbnail.url.replace(
-                  /\/s[0-9]+(-c)?\//,
-                  "/s200/"
-                );
+
+              if(
+                entry.link[i].rel ===
+                "alternate"
+              ){
+
+                url =
+                  entry.link[i].href;
+
+                break;
+
+              }
+
             }
-            /* ---------------------------------------------
-               POST CARD
-               --------------------------------------------- */
-            var card =
-              document.createElement("a");
-            card.className =
-              "ashub-post";
-            card.href = url;
-            card.target =
-              "_blank";
-            card.rel =
-              "noopener noreferrer";
-            /* ---------------------------------------------
-               IMAGE BOX
-               --------------------------------------------- */
-            var imageBox =
-              document.createElement("div");
-            imageBox.className =
-              "ashub-post-image";
-            if(imageUrl){
-              var image =
-                document.createElement("img");
-              image.src =
-                imageUrl;
-              image.width =
-                72;
-              image.height =
-                56;
-              image.alt =
-                "";
-              image.loading =
-                "lazy";
-              image.decoding =
-                "async";
-              imageBox.appendChild(
-                image
-              );
-            }
-            /* ---------------------------------------------
-               TITLE
-               --------------------------------------------- */
-            var titleBox =
-              document.createElement("div");
-            titleBox.className =
-              "ashub-post-title";
-            titleBox.textContent =
-              title;
-            /* ---------------------------------------------
-               ARROW
-               --------------------------------------------- */
-            var arrow =
-              document.createElement("div");
-            arrow.className =
-              "ashub-post-arrow";
-            arrow.textContent =
-              "›";
-            /* ---------------------------------------------
-               BUILD CARD
-               --------------------------------------------- */
-            card.appendChild(
-              imageBox
-            );
-            card.appendChild(
-              titleBox
-            );
-            card.appendChild(
-              arrow
-            );
-            fragment.appendChild(
-              card
-            );
+
           }
-        );
-        /* -----------------------------------------------
-           REPLACE SKELETONS
-           ----------------------------------------------- */
-        container.replaceChildren(
-          fragment
-        );
-      };
-    /* =======================================================
-       LOAD BLOGGER FEED ======================================================= */
+
+
+          /* ===============================================
+             POST IMAGE
+             =============================================== */
+
+          var imageUrl = "";
+
+
+          if(
+            entry.media$thumbnail &&
+            entry.media$thumbnail.url
+          ){
+
+            imageUrl =
+              entry.media$thumbnail.url.replace(
+                /\/s[0-9]+(-c)?\//,
+                "/s200/"
+              );
+
+          }
+
+
+          /* ===============================================
+             POST CARD
+             =============================================== */
+
+          var card =
+            document.createElement("a");
+
+
+          card.className =
+            "ashub-post";
+
+
+          card.href =
+            url;
+
+
+          card.target =
+            "_blank";
+
+
+          card.rel =
+            "noopener noreferrer";
+
+
+          /* ===============================================
+             IMAGE BOX
+             =============================================== */
+
+          var imageBox =
+            document.createElement("div");
+
+
+          imageBox.className =
+            "ashub-post-image";
+
+
+          if(imageUrl){
+
+            var image =
+              document.createElement("img");
+
+
+            image.src =
+              imageUrl;
+
+
+            image.width =
+              72;
+
+
+            image.height =
+              56;
+
+
+            image.alt =
+              "";
+
+
+            image.loading =
+              "lazy";
+
+
+            image.decoding =
+              "async";
+
+
+            imageBox.appendChild(
+              image
+            );
+
+          }
+
+
+          /* ===============================================
+             TITLE
+             =============================================== */
+
+          var titleBox =
+            document.createElement("div");
+
+
+          titleBox.className =
+            "ashub-post-title";
+
+
+          titleBox.textContent =
+            title;
+
+
+          /* ===============================================
+             ARROW
+             =============================================== */
+
+          var arrow =
+            document.createElement("div");
+
+
+          arrow.className =
+            "ashub-post-arrow";
+
+
+          arrow.textContent =
+            "›";
+
+
+          /* ===============================================
+             BUILD CARD
+             =============================================== */
+
+          card.appendChild(
+            imageBox
+          );
+
+
+          card.appendChild(
+            titleBox
+          );
+
+
+          card.appendChild(
+            arrow
+          );
+
+
+          fragment.appendChild(
+            card
+          );
+
+        }
+      );
+
+
+      /* ===================================================
+         REMOVE SKELETONS
+         =================================================== */
+
+      container.replaceChildren(
+        fragment
+      );
+
+    };
+
+
+    /* =====================================================
+       LOAD BLOGGER JSONP FEED
+       ===================================================== */
+
     var script =
       document.createElement(
         "script"
       );
+
+
     script.src =
       feed;
+
+
     script.async =
       true;
+
+
     document.body.appendChild(
       script
     );
+
+
   })();
+
   </script>
+
+
 </body>
+
 </html>
