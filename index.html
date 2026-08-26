@@ -1,656 +1,1618 @@
-<!-- theAShub Landing Page -->
-<style>
-#ashub-landing{
-  --text:#212428;
-  --border:#fac926;
-  width:100%;
-  min-height:100vh;
-  margin:0;
-  padding:32px 16px 40px;
-  box-sizing:border-box;
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-}
-#ashub-landing *{box-sizing:border-box}
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-.ashub-wrap{
-  width:100%;
-  max-width:680px;
-  margin:auto;
-  text-align:center;
-}
+  <meta charset="UTF-8">
 
-/* Logo */
-.ashub-logo{margin-bottom:14px}
-.ashub-logo img{
-  width:88px;
-  height:88px;
-  display:block;
-  margin:auto;
-  object-fit:contain;
-  border-radius:50%;
-}
+  <!-- Essential for mobile responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* Heading */
-.ashub-title{
-  margin:0;
-  font-size:clamp(24px,4vw,30px);
-  line-height:1.25;
-  font-weight:700;
-  color:#212428;
-}
+  <title>theAShub - Education, Careers, Jobs & Opportunities</title>
 
-.ashub-description{
-  max-width:580px;
-  margin:10px auto 22px;
-  font-size:clamp(15px,2.5vw,17px);
-  line-height:1.65;
-  color:#212428;
-}
+  <meta name="description"
+        content="theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.">
 
-/* Social */
-.ashub-social{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:26px;
-}
-.ashub-social a{
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--border);
-  border-radius:50%;
-  background:#fff;
-  color:#212428;
-  text-decoration:none;
-  transition:.2s;
-}
-.ashub-social a:hover{
-  transform:translateY(-2px);
-}
-.ashub-social svg{
-  width:19px;
-  height:19px;
-  display:block;
-}
-.ashub-social svg path{fill:currentColor}
-.ashub-social .outline{fill:none;stroke:currentColor}
-.ashub-social .white{fill:#fff}
+  <meta name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-/* Posts */
-.ashub-latest{width:100%;text-align:left}
+  <meta name="theme-color" content="#ffffff">
 
-.ashub-post,
-.ashub-skeleton{
-  display:flex;
-  align-items:center;
-  width:100%;
-  min-height:78px;
-  padding:8px;
-  margin-bottom:10px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#fff;
-}
+  <style>
 
-.ashub-post{
-  color:#212428;
-  text-decoration:none;
-  transition:.2s;
-}
-.ashub-post:hover{
-  transform:translateY(-1px);
-}
+    /* =========================================================
+       RESET
+       ========================================================= */
 
-.ashub-post-image,
-.ashub-skeleton-image{
-  flex:0 0 72px;
-  width:72px;
-  height:56px;
-  margin-right:12px;
-  border-radius:8px;
-  overflow:hidden;
-  background:#edf0f3;
-}
+    html,
+    body{
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      margin:0;
+      padding:0;
+      overflow-x:hidden;
+    }
 
-.ashub-post-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+    *,
+    *::before,
+    *::after{
+      box-sizing:border-box;
+    }
 
-.ashub-post-title{
-  flex:1;
-  min-width:0;
-  font-size:15px;
-  font-weight:700;
-  line-height:1.45;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
 
-.ashub-post-arrow{
-  margin-left:8px;
-  font-size:20px;
-  color:#888;
-}
+    /* =========================================================
+       MAIN LANDING PAGE
+       ========================================================= */
 
-/* Skeleton */
-.ashub-skeleton-title,
-.ashub-skeleton-meta,
-.ashub-skeleton-image{
-  background:#edf0f3;
-  animation:pulse 1.2s infinite ease-in-out;
-}
-.ashub-skeleton-content{flex:1}
-.ashub-skeleton-title{
-  height:13px;
-  border-radius:4px;
-  margin-bottom:8px;
-  width:90%;
-}
-.ashub-skeleton-title.short{width:65%}
-.ashub-skeleton-meta{
-  width:35%;
-  height:8px;
-  border-radius:4px;
-}
-@keyframes pulse{
-  0%,100%{opacity:.55}
-  50%{opacity:1}
-}
+    #ashub-landing{
+      --text:#212428;
+      --border:#fac926;
 
-/* Button */
-.ashub-continue{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
-  min-height:52px;
-  margin-top:18px;
-  padding:14px 18px;
-  border-radius:12px;
-  background:#212428;
-  color:#fff;
-  font-size:15px;
-  font-weight:700;
-  text-decoration:none;
-  transition:.2s;
-}
-.ashub-continue:hover{
-  background:#111;
-}
+      width:100%;
+      max-width:100%;
+      min-height:100vh;
 
-/* Footer */
-.ashub-footer{
-  margin-top:24px;
-  font-size:11px;
-  color:#777;
-  line-height:1.7;
-}
-.ashub-footer a{
-  color:#555;
-  text-decoration:none;
-}
+      margin:0;
+      padding:32px 16px 40px;
 
-/* ---------- Tablet ---------- */
-@media (max-width:768px){
-  #ashub-landing{padding:28px 14px 34px}
-  .ashub-wrap{max-width:100%}
-}
+      background:transparent;
+      color:var(--text);
 
-/* ---------- Mobile ---------- */
-@media (max-width:480px){
-  #ashub-landing{padding:22px 12px 30px}
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    }
 
-  .ashub-logo img{
-    width:74px;
-    height:74px;
-  }
 
-  .ashub-social{
-    gap:8px;
-  }
+    /* =========================================================
+       MAIN CONTENT WIDTH
+       ========================================================= */
 
-  .ashub-social a{
-    width:38px;
-    height:38px;
-  }
+    .ashub-wrap{
+      width:100%;
+      max-width:680px;
+      margin:0 auto;
+      text-align:center;
+    }
 
-  .ashub-post,
-  .ashub-skeleton{
-    min-height:72px;
-    padding:7px;
-  }
 
-  .ashub-post-image,
-  .ashub-skeleton-image{
-    flex-basis:62px;
-    width:62px;
-    height:50px;
-    margin-right:10px;
-  }
+    /* =========================================================
+       LOGO
+       ========================================================= */
 
-  .ashub-post-title{
-    font-size:14px;
-  }
+    .ashub-logo{
+      width:100%;
+      margin:0 0 14px;
+    }
 
-  .ashub-post-arrow{
-    font-size:18px;
-  }
+    .ashub-logo img{
+      display:block;
 
-  .ashub-continue{
-    font-size:14px;
-  }
-}
-</style>
+      width:88px;
+      height:88px;
 
-<div id="ashub-landing">
+      max-width:100%;
 
-  <div class="ashub-wrap">
+      margin:0 auto;
 
-    <div class="ashub-logo">
-      <img
-        src="YOUR-LOGO-URL"
-        width="88"
-        height="88"
-        alt="theAShub - Education and Career Platform"
-        loading="eager">
-    </div>
+      object-fit:contain;
+      border-radius:50%;
+    }
 
-    <h1 class="ashub-title">theAShub</h1>
 
-    <p class="ashub-description">
-      Explore educational resources, career guidance, jobs,
-      opportunities, important notifications and useful updates
-      for learners and aspirants.
-    </p>
+    /* =========================================================
+       TITLE
+       ========================================================= */
 
-    <div class="ashub-social">
+    .ashub-title{
+      width:100%;
 
-      <!-- Instagram -->
-      <a href="YOUR-INSTAGRAM-URL"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"
-                class="outline" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4"
-                  class="outline" stroke-width="2"/>
-          <circle cx="17.5" cy="6.5" r="1.2"/>
-        </svg>
-      </a>
+      margin:0;
 
-      <!-- YouTube -->
-      <a href="YOUR-YOUTUBE-URL"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="YouTube">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2C1.9 9 1.9 12 1.9 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8z"/>
-          <path d="M10 9l5 3-5 3V9z" class="white"/>
-        </svg>
-      </a>
+      color:#212428;
 
-      <!-- Telegram -->
-      <a href="YOUR-TELEGRAM-URL"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Telegram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21.5 4.5L18.2 20c-.3 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.6 13.7.7 12.2c-1.1-.3-1.1-1.1.2-1.6L20 4.1c.9-.3 1.7.2 1.5.4z"/>
-        </svg>
-      </a>
+      font-size:clamp(24px,4vw,30px);
+      line-height:1.25;
 
-      <!-- LinkedIn -->
-      <a href="YOUR-LINKEDIN-URL"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="2"
-                class="outline" stroke-width="2"/>
-          <path d="M7 10v7M7 7v.1M11 17v-4c0-1.2.8-2 2-2s2 .8 2 2v4M11 10v7"
-                class="outline"
-                stroke-width="2"
-                stroke-linecap="round"/>
-        </svg>
-      </a>
+      font-weight:700;
 
-      <!-- X -->
-      <a href="YOUR-X-URL"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="X">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 4h4.5l3.2 4.5L16.5 4H19l-5.2 6 6.2 10H15.5l-3.7-5.4L7.2 20H4.8l5.5-6.4L5 4z"/>
-        </svg>
-      </a>
+      overflow-wrap:anywhere;
+    }
 
-      <!-- WhatsApp -->
-      <a href="YOUR-WHATSAPP-URL"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"
-                class="outline"
-                stroke-width="2"/>
-          <path d="M9 8.5c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c.7 1.1 1.5 1.8 2.6 2.3l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.3.6-.2.7-.8 1.3-1.5 1.5-1.2.3-3.2-.6-4.6-1.9-1.4-1.3-2.4-3.1-2.3-4.3.1-.5.5-.9 1-1z"/>
-        </svg>
-      </a>
 
-    </div>
+    /* =========================================================
+       DESCRIPTION
+       ========================================================= */
 
-    <section class="ashub-latest">
-      <div id="ashub-posts">
+    .ashub-description{
+      width:100%;
+      max-width:580px;
 
-        <!-- Skeleton loader -->
-        <div class="ashub-skeleton">
-          <i class="ashub-skeleton-image"></i>
-          <div class="ashub-skeleton-content">
-            <b class="ashub-skeleton-title"></b>
-            <b class="ashub-skeleton-title short"></b>
-            <small class="ashub-skeleton-meta"></small>
-          </div>
-        </div>
+      margin:10px auto 22px;
 
-        <div class="ashub-skeleton">
-          <i class="ashub-skeleton-image"></i>
-          <div class="ashub-skeleton-content">
-            <b class="ashub-skeleton-title"></b>
-            <b class="ashub-skeleton-title short"></b>
-            <small class="ashub-skeleton-meta"></small>
-          </div>
-        </div>
+      color:#212428;
 
-        <div class="ashub-skeleton">
-          <i class="ashub-skeleton-image"></i>
-          <div class="ashub-skeleton-content">
-            <b class="ashub-skeleton-title"></b>
-            <b class="ashub-skeleton-title short"></b>
-            <small class="ashub-skeleton-meta"></small>
-          </div>
-        </div>
+      font-size:clamp(15px,2.5vw,17px);
+      line-height:1.65;
 
-        <div class="ashub-skeleton">
-          <i class="ashub-skeleton-image"></i>
-          <div class="ashub-skeleton-content">
-            <b class="ashub-skeleton-title"></b>
-            <b class="ashub-skeleton-title short"></b>
-            <small class="ashub-skeleton-meta"></small>
-          </div>
-        </div>
+      overflow-wrap:anywhere;
+    }
 
-        <div class="ashub-skeleton">
-          <i class="ashub-skeleton-image"></i>
-          <div class="ashub-skeleton-content">
-            <b class="ashub-skeleton-title"></b>
-            <b class="ashub-skeleton-title short"></b>
-            <small class="ashub-skeleton-meta"></small>
-          </div>
-        </div>
+
+    /* =========================================================
+       SOCIAL ICONS
+       ========================================================= */
+
+    .ashub-social{
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      flex-wrap:wrap;
+
+      gap:10px;
+
+      width:100%;
+
+      margin:0 0 26px;
+    }
+
+    .ashub-social a{
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      flex:0 0 auto;
+
+      width:42px;
+      height:42px;
+
+      border:1px solid var(--border);
+      border-radius:50%;
+
+      background:#fff;
+      color:#212428;
+
+      text-decoration:none;
+
+      transition:
+        transform .18s ease,
+        background .18s ease;
+    }
+
+    .ashub-social a:hover{
+      transform:translateY(-2px);
+      background:#fffdf3;
+    }
+
+    .ashub-social svg{
+      display:block;
+
+      width:19px;
+      height:19px;
+
+      max-width:100%;
+    }
+
+    .ashub-social svg path{
+      fill:currentColor;
+    }
+
+    .ashub-social svg .outline{
+      fill:none;
+      stroke:currentColor;
+    }
+
+    .ashub-social svg .white{
+      fill:#fff;
+    }
+
+
+    /* =========================================================
+       LATEST POSTS
+       ========================================================= */
+
+    .ashub-latest{
+      width:100%;
+      max-width:100%;
+
+      margin:0;
+
+      text-align:left;
+    }
+
+    #ashub-posts{
+      width:100%;
+      max-width:100%;
+    }
+
+
+    /* =========================================================
+       POST CARD
+       ========================================================= */
+
+    .ashub-post{
+      display:flex;
+
+      align-items:center;
+
+      width:100%;
+      max-width:100%;
+
+      min-height:78px;
+
+      margin:0 0 10px;
+      padding:8px;
+
+      border:1px solid var(--border);
+      border-radius:12px;
+
+      background:#fff;
+      color:#212428;
+
+      text-decoration:none;
+
+      overflow:hidden;
+
+      transition:transform .18s ease;
+    }
+
+    .ashub-post:hover{
+      transform:translateY(-1px);
+    }
+
+
+    /* =========================================================
+       POST IMAGE
+       ========================================================= */
+
+    .ashub-post-image{
+      flex:0 0 72px;
+
+      width:72px;
+      height:56px;
+
+      margin-right:12px;
+
+      border-radius:8px;
+
+      overflow:hidden;
+
+      background:#fac926;
+    }
+
+    .ashub-post-image img{
+      display:block;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+    }
+
+
+    /* =========================================================
+       POST TITLE
+       ========================================================= */
+
+    .ashub-post-title{
+      flex:1 1 auto;
+
+      min-width:0;
+      max-width:100%;
+
+      margin:0;
+
+      color:#212428;
+
+      font-size:15px;
+      line-height:1.45;
+
+      font-weight:700;
+
+      overflow:hidden;
+
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:2;
+    }
+
+
+    /* =========================================================
+       POST ARROW
+       ========================================================= */
+
+    .ashub-post-arrow{
+      flex:0 0 auto;
+
+      margin-left:8px;
+
+      color:#888;
+
+      font-size:20px;
+      line-height:1;
+    }
+
+
+    /* =========================================================
+       SKELETON LOADER
+       ========================================================= */
+
+    .ashub-skeleton{
+      display:flex;
+
+      align-items:center;
+
+      width:100%;
+      max-width:100%;
+
+      min-height:78px;
+
+      margin:0 0 10px;
+      padding:8px;
+
+      border:1px solid var(--border);
+      border-radius:12px;
+
+      background:#fff;
+
+      overflow:hidden;
+    }
+
+    .ashub-skeleton-image{
+      flex:0 0 72px;
+
+      width:72px;
+      height:56px;
+
+      margin-right:12px;
+
+      border-radius:8px;
+
+      background:#edf0f3;
+
+      animation:ashubPulse 1.2s ease-in-out infinite;
+    }
+
+    .ashub-skeleton-content{
+      flex:1 1 auto;
+      min-width:0;
+    }
+
+    .ashub-skeleton-title{
+      display:block;
+
+      width:90%;
+      height:13px;
+
+      margin:0 0 8px;
+
+      border-radius:4px;
+
+      background:#edf0f3;
+
+      animation:ashubPulse 1.2s ease-in-out infinite;
+    }
+
+    .ashub-skeleton-title.short{
+      width:65%;
+    }
+
+    .ashub-skeleton-meta{
+      display:block;
+
+      width:35%;
+      height:8px;
+
+      border-radius:4px;
+
+      background:#edf0f3;
+
+      animation:ashubPulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes ashubPulse{
+      0%,
+      100%{
+        opacity:.55;
+      }
+
+      50%{
+        opacity:1;
+      }
+    }
+
+
+    /* =========================================================
+       LOADING / EMPTY MESSAGE
+       ========================================================= */
+
+    .ashub-loading{
+      width:100%;
+
+      padding:20px;
+
+      border:1px solid var(--border);
+      border-radius:12px;
+
+      background:#fff;
+
+      color:#777;
+
+      text-align:center;
+
+      font-size:14px;
+    }
+
+
+    /* =========================================================
+       CONTINUE BUTTON
+       ========================================================= */
+
+    .ashub-continue{
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      width:100%;
+      max-width:100%;
+
+      min-height:52px;
+
+      margin:18px 0 0;
+      padding:14px 18px;
+
+      border-radius:12px;
+
+      background:#212428;
+      color:#fff;
+
+      font-size:15px;
+      line-height:1.3;
+
+      font-weight:700;
+
+      text-align:center;
+      text-decoration:none;
+
+      transition:
+        transform .18s ease,
+        background .18s ease;
+    }
+
+    .ashub-continue:hover{
+      background:#111;
+      transform:translateY(-1px);
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .ashub-footer{
+      width:100%;
+
+      margin:24px 0 0;
+
+      color:#777;
+
+      font-size:11px;
+      line-height:1.7;
+
+      text-align:center;
+
+      overflow-wrap:anywhere;
+    }
+
+    .ashub-footer a{
+      color:#555;
+      text-decoration:none;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width:768px){
+
+      #ashub-landing{
+        padding:28px 14px 34px;
+      }
+
+      .ashub-wrap{
+        max-width:680px;
+      }
+
+      .ashub-description{
+        max-width:600px;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width:480px){
+
+      #ashub-landing{
+        padding:22px 12px 30px;
+      }
+
+      .ashub-logo{
+        margin-bottom:12px;
+      }
+
+      .ashub-logo img{
+        width:74px;
+        height:74px;
+      }
+
+      .ashub-title{
+        font-size:24px;
+      }
+
+      .ashub-description{
+        margin:8px auto 20px;
+
+        font-size:15px;
+        line-height:1.55;
+      }
+
+      .ashub-social{
+        gap:8px;
+        margin-bottom:22px;
+      }
+
+      .ashub-social a{
+        width:38px;
+        height:38px;
+      }
+
+      .ashub-social svg{
+        width:17px;
+        height:17px;
+      }
+
+      .ashub-post{
+        min-height:72px;
+        padding:7px;
+      }
+
+      .ashub-post-image{
+        flex:0 0 62px;
+
+        width:62px;
+        height:50px;
+
+        margin-right:10px;
+      }
+
+      .ashub-post-title{
+        font-size:14px;
+        line-height:1.4;
+      }
+
+      .ashub-post-arrow{
+        margin-left:6px;
+        font-size:18px;
+      }
+
+      .ashub-skeleton{
+        min-height:72px;
+        padding:7px;
+      }
+
+      .ashub-skeleton-image{
+        flex:0 0 62px;
+
+        width:62px;
+        height:50px;
+
+        margin-right:10px;
+      }
+
+      .ashub-continue{
+        min-height:50px;
+        padding:13px 15px;
+
+        font-size:14px;
+      }
+
+    }
+
+
+    /* =========================================================
+       VERY SMALL PHONES
+       ========================================================= */
+
+    @media (max-width:360px){
+
+      #ashub-landing{
+        padding:18px 9px 26px;
+      }
+
+      .ashub-logo img{
+        width:68px;
+        height:68px;
+      }
+
+      .ashub-title{
+        font-size:22px;
+      }
+
+      .ashub-description{
+        font-size:14px;
+      }
+
+      .ashub-social{
+        gap:6px;
+      }
+
+      .ashub-social a{
+        width:36px;
+        height:36px;
+      }
+
+      .ashub-social svg{
+        width:16px;
+        height:16px;
+      }
+
+      .ashub-post-image{
+        flex-basis:56px;
+        width:56px;
+        height:47px;
+      }
+
+      .ashub-skeleton-image{
+        flex-basis:56px;
+        width:56px;
+        height:47px;
+      }
+
+      .ashub-post-title{
+        font-size:13px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- =======================================================
+       THEASHUB LANDING PAGE
+       ======================================================= -->
+
+  <div id="ashub-landing">
+
+    <div class="ashub-wrap">
+
+
+      <!-- LOGO -->
+
+      <div class="ashub-logo">
+
+        <img
+          src="YOUR-LOGO-URL"
+          width="88"
+          height="88"
+          alt="theAShub - Education and Career Platform"
+          loading="eager">
 
       </div>
 
-    </section>
 
-    <a class="ashub-continue"
-       href="https://www.theashub.in/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Continue to theAShub
-    </a>
+      <!-- TITLE -->
 
-    <footer class="ashub-footer">
-      © 2026
-      <a href="https://www.theashub.in/"
-         target="_blank"
-         rel="noopener noreferrer">
+      <h1 class="ashub-title">
         theAShub
+      </h1>
+
+
+      <!-- DESCRIPTION -->
+
+      <p class="ashub-description">
+        Explore educational resources, career guidance, jobs,
+        opportunities, important notifications and useful updates
+        for learners and aspirants.
+      </p>
+
+
+      <!-- ===================================================
+           SOCIAL LINKS
+           =================================================== -->
+
+      <div class="ashub-social">
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          href="YOUR-INSTAGRAM-URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="5"
+              class="outline"
+              stroke-width="2"/>
+
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              class="outline"
+              stroke-width="2"/>
+
+            <circle
+              cx="17.5"
+              cy="6.5"
+              r="1.2"/>
+
+          </svg>
+
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+          href="YOUR-YOUTUBE-URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2C1.9 9 1.9 12 1.9 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8z"/>
+
+            <path
+              d="M10 9l5 3-5 3V9z"
+              class="white"/>
+
+          </svg>
+
+        </a>
+
+
+        <!-- TELEGRAM -->
+
+        <a
+          href="YOUR-TELEGRAM-URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Telegram">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M21.5 4.5L18.2 20c-.3 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.6 13.7.7 12.2c-1.1-.3-1.1-1.1.2-1.6L20 4.1c.9-.3 1.7.2 1.5.4z"/>
+
+          </svg>
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a
+          href="YOUR-LINKEDIN-URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="2"
+              class="outline"
+              stroke-width="2"/>
+
+            <path
+              d="M7 10v7M7 7v.1M11 17v-4c0-1.2.8-2 2-2s2 .8 2 2v4M11 10v7"
+              class="outline"
+              stroke-width="2"
+              stroke-linecap="round"/>
+
+          </svg>
+
+        </a>
+
+
+        <!-- X -->
+
+        <a
+          href="YOUR-X-URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M5 4h4.5l3.2 4.5L16.5 4H19l-5.2 6 6.2 10H15.5l-3.7-5.4L7.2 20H4.8l5.5-6.4L5 4z"/>
+
+          </svg>
+
+        </a>
+
+
+        <!-- WHATSAPP -->
+
+        <a
+          href="YOUR-WHATSAPP-URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"
+              class="outline"
+              stroke-width="2"/>
+
+            <path
+              d="M9 8.5c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c.7 1.1 1.5 1.8 2.6 2.3l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.3.6-.2.7-.8 1.3-1.5 1.5-1.2.3-3.2-.6-4.6-1.9-1.4-1.3-2.4-3.1-2.3-4.3.1-.5.5-.9 1-1z"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+
+      <!-- ===================================================
+           LATEST POSTS
+           =================================================== -->
+
+      <section class="ashub-latest">
+
+        <div id="ashub-posts">
+
+
+          <!-- SKELETON 1 -->
+
+          <div class="ashub-skeleton">
+
+            <i class="ashub-skeleton-image"></i>
+
+            <div class="ashub-skeleton-content">
+
+              <b class="ashub-skeleton-title"></b>
+
+              <b class="ashub-skeleton-title short"></b>
+
+              <small class="ashub-skeleton-meta"></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- SKELETON 2 -->
+
+          <div class="ashub-skeleton">
+
+            <i class="ashub-skeleton-image"></i>
+
+            <div class="ashub-skeleton-content">
+
+              <b class="ashub-skeleton-title"></b>
+
+              <b class="ashub-skeleton-title short"></b>
+
+              <small class="ashub-skeleton-meta"></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- SKELETON 3 -->
+
+          <div class="ashub-skeleton">
+
+            <i class="ashub-skeleton-image"></i>
+
+            <div class="ashub-skeleton-content">
+
+              <b class="ashub-skeleton-title"></b>
+
+              <b class="ashub-skeleton-title short"></b>
+
+              <small class="ashub-skeleton-meta"></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- SKELETON 4 -->
+
+          <div class="ashub-skeleton">
+
+            <i class="ashub-skeleton-image"></i>
+
+            <div class="ashub-skeleton-content">
+
+              <b class="ashub-skeleton-title"></b>
+
+              <b class="ashub-skeleton-title short"></b>
+
+              <small class="ashub-skeleton-meta"></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- SKELETON 5 -->
+
+          <div class="ashub-skeleton">
+
+            <i class="ashub-skeleton-image"></i>
+
+            <div class="ashub-skeleton-content">
+
+              <b class="ashub-skeleton-title"></b>
+
+              <b class="ashub-skeleton-title short"></b>
+
+              <small class="ashub-skeleton-meta"></small>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- CONTINUE -->
+
+      <a
+        class="ashub-continue"
+        href="https://www.theashub.in/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Continue to theAShub
+
       </a>
-      <br>
-      Learn. Explore. Grow.
-    </footer>
+
+
+      <!-- FOOTER -->
+
+      <footer class="ashub-footer">
+
+        © 2026
+
+        <a
+          href="https://www.theashub.in/"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          theAShub
+
+        </a>
+
+        <br>
+
+        Learn. Explore. Grow.
+
+      </footer>
+
+
+    </div>
 
   </div>
 
-</div>
 
-<script>
-(function(){
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
 
-  "use strict";
+  <script>
 
-  var SEO_TITLE =
-    "theAShub - Education, Careers, Jobs & Opportunities";
+  (function(){
 
-  var SEO_DESCRIPTION =
-    "theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.";
+    "use strict";
 
-  var SITE_URL =
-    "https://www.theashub.in/";
 
-  var SHARE_IMAGE =
-    "YOUR-LOGO-OR-SHARE-IMAGE-URL";
+    /* =======================================================
+       SEO
+       ======================================================= */
 
-  var FAVICON_URL =
-    "YOUR-FAVICON-URL";
+    var SEO_TITLE =
+      "theAShub - Education, Careers, Jobs & Opportunities";
 
-  /* SEO */
+    var SEO_DESCRIPTION =
+      "theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.";
 
-  document.title = SEO_TITLE;
+    var SITE_URL =
+      "https://www.theashub.in/";
 
-  function meta(name,content,property){
+    var SHARE_IMAGE =
+      "YOUR-LOGO-OR-SHARE-IMAGE-URL";
 
-    var selector = property
-      ? 'meta[property="' + property + '"]'
-      : 'meta[name="' + name + '"]';
+    var FAVICON_URL =
+      "YOUR-FAVICON-URL";
 
-    var el = document.head.querySelector(selector);
 
-    if(!el){
-      el = document.createElement("meta");
+    /* =======================================================
+       PAGE TITLE
+       ======================================================= */
+
+    document.title = SEO_TITLE;
+
+
+    /* =======================================================
+       META HELPER
+       ======================================================= */
+
+    function setMeta(name,content,property){
+
+      var selector;
 
       if(property){
-        el.setAttribute("property",property);
+
+        selector =
+          'meta[property="' + property + '"]';
+
       }else{
-        el.setAttribute("name",name);
+
+        selector =
+          'meta[name="' + name + '"]';
+
       }
 
-      document.head.appendChild(el);
-    }
 
-    el.setAttribute("content",content);
-  }
+      var el =
+        document.head.querySelector(selector);
 
-  meta("description",SEO_DESCRIPTION);
-  meta("robots","index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-  meta("googlebot","index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-  meta("author","theAShub");
-  meta("theme-color","#ffffff");
-  meta("format-detection","telephone=no");
 
-  var canonical =
-    document.head.querySelector('link[rel="canonical"]');
+      if(!el){
 
-  if(!canonical){
-    canonical = document.createElement("link");
-    canonical.rel = "canonical";
-    document.head.appendChild(canonical);
-  }
+        el =
+          document.createElement("meta");
 
-  canonical.href = SITE_URL;
 
-  if(FAVICON_URL.indexOf("YOUR-") !== 0){
+        if(property){
 
-    var favicon =
-      document.head.querySelector('link[rel="icon"]');
+          el.setAttribute(
+            "property",
+            property
+          );
 
-    if(!favicon){
-      favicon = document.createElement("link");
-      favicon.rel = "icon";
-      favicon.type = "image/png";
-      document.head.appendChild(favicon);
-    }
+        }else{
 
-    favicon.href = FAVICON_URL;
-  }
-
-  meta("","website","og:type");
-  meta("",SEO_TITLE,"og:title");
-  meta("",SEO_DESCRIPTION,"og:description");
-  meta("",SITE_URL,"og:url");
-  meta("","theAShub","og:site_name");
-
-  meta("twitter:card","summary_large_image");
-  meta("twitter:title",SEO_TITLE);
-  meta("twitter:description",SEO_DESCRIPTION);
-
-  if(SHARE_IMAGE.indexOf("YOUR-") !== 0){
-    meta("","", "");
-    meta("twitter:image",SHARE_IMAGE);
-    meta("","", "");
-    meta("og:image",SHARE_IMAGE);
-  }
-
-  /* Blogger Posts */
-
-  var count = 5;
-
-  var feed =
-    "https://www.theashub.in/feeds/posts/default" +
-    "?alt=json-in-script" +
-    "&max-results=" + count +
-    "&callback=ashubLatestPosts";
-
-  window.ashubLatestPosts = function(data){
-
-    var container =
-      document.getElementById("ashub-posts");
-
-    if(!container) return;
-
-    if(!data ||
-       !data.feed ||
-       !data.feed.entry ||
-       !data.feed.entry.length){
-
-      container.innerHTML =
-        '<div class="ashub-loading">No latest posts available.</div>';
-
-      return;
-    }
-
-    var fragment = document.createDocumentFragment();
-
-    data.feed.entry.forEach(function(entry){
-
-      var title =
-        entry.title && entry.title.$t
-          ? entry.title.$t
-          : "Untitled";
-
-      var url = "#";
-
-      if(entry.link){
-
-        for(var i=0;i<entry.link.length;i++){
-
-          if(entry.link[i].rel === "alternate"){
-            url = entry.link[i].href;
-            break;
-          }
+          el.setAttribute(
+            "name",
+            name
+          );
 
         }
 
+
+        document.head.appendChild(el);
+
       }
 
-      var imageUrl = "";
 
-      if(entry.media$thumbnail &&
-         entry.media$thumbnail.url){
+      el.setAttribute(
+        "content",
+        content
+      );
 
-        imageUrl =
-          entry.media$thumbnail.url.replace(
-            /\/s[0-9]+(-c)?\//,
-            "/s200/"
+    }
+
+
+    /* =======================================================
+       SEO META
+       ======================================================= */
+
+    setMeta(
+      "description",
+      SEO_DESCRIPTION
+    );
+
+    setMeta(
+      "robots",
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    );
+
+    setMeta(
+      "googlebot",
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    );
+
+    setMeta(
+      "author",
+      "theAShub"
+    );
+
+    setMeta(
+      "theme-color",
+      "#ffffff"
+    );
+
+    setMeta(
+      "format-detection",
+      "telephone=no"
+    );
+
+
+    /* =======================================================
+       CANONICAL
+       ======================================================= */
+
+    var canonical =
+      document.head.querySelector(
+        'link[rel="canonical"]'
+      );
+
+
+    if(!canonical){
+
+      canonical =
+        document.createElement("link");
+
+      canonical.rel = "canonical";
+
+      document.head.appendChild(
+        canonical
+      );
+
+    }
+
+
+    canonical.href = SITE_URL;
+
+
+    /* =======================================================
+       FAVICON
+       ======================================================= */
+
+    if(
+      FAVICON_URL &&
+      FAVICON_URL.indexOf("YOUR-") !== 0
+    ){
+
+      var favicon =
+        document.head.querySelector(
+          'link[rel="icon"]'
+        );
+
+
+      if(!favicon){
+
+        favicon =
+          document.createElement("link");
+
+        favicon.rel = "icon";
+        favicon.type = "image/png";
+
+        document.head.appendChild(
+          favicon
+        );
+
+      }
+
+
+      favicon.href = FAVICON_URL;
+
+    }
+
+
+    /* =======================================================
+       OPEN GRAPH
+       ======================================================= */
+
+    setMeta(
+      "",
+      "website",
+      "og:type"
+    );
+
+    setMeta(
+      "",
+      SEO_TITLE,
+      "og:title"
+    );
+
+    setMeta(
+      "",
+      SEO_DESCRIPTION,
+      "og:description"
+    );
+
+    setMeta(
+      "",
+      SITE_URL,
+      "og:url"
+    );
+
+    setMeta(
+      "",
+      "theAShub",
+      "og:site_name"
+    );
+
+
+    /* =======================================================
+       TWITTER
+       ======================================================= */
+
+    setMeta(
+      "twitter:card",
+      "summary_large_image"
+    );
+
+    setMeta(
+      "twitter:title",
+      SEO_TITLE
+    );
+
+    setMeta(
+      "twitter:description",
+      SEO_DESCRIPTION
+    );
+
+
+    /* =======================================================
+       SHARE IMAGE
+       ======================================================= */
+
+    if(
+      SHARE_IMAGE &&
+      SHARE_IMAGE.indexOf("YOUR-") !== 0
+    ){
+
+      setMeta(
+        "",
+        SHARE_IMAGE,
+        "og:image"
+      );
+
+      setMeta(
+        "twitter:image",
+        SHARE_IMAGE
+      );
+
+    }
+
+
+    /* =======================================================
+       BLOGGER FEED
+       ======================================================= */
+
+    var count = 5;
+
+
+    var feed =
+      "https://www.theashub.in/feeds/posts/default" +
+      "?alt=json-in-script" +
+      "&max-results=" +
+      count +
+      "&callback=ashubLatestPosts";
+
+
+    /* =======================================================
+       BLOGGER CALLBACK
+       ======================================================= */
+
+    window.ashubLatestPosts =
+      function(data){
+
+        var container =
+          document.getElementById(
+            "ashub-posts"
           );
-      }
 
-      var card =
-        document.createElement("a");
 
-      card.className = "ashub-post";
-      card.href = url;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
+        if(!container){
 
-      var imageBox =
-        document.createElement("div");
+          return;
 
-      imageBox.className =
-        "ashub-post-image";
+        }
 
-      if(imageUrl){
 
-        var image =
-          document.createElement("img");
+        if(
+          !data ||
+          !data.feed ||
+          !data.feed.entry ||
+          !data.feed.entry.length
+        ){
 
-        image.src = imageUrl;
-        image.width = 64;
-        image.height = 54;
-        image.alt = "";
-        image.loading = "lazy";
-        image.decoding = "async";
+          container.innerHTML =
+            '<div class="ashub-loading">' +
+            'No latest posts available.' +
+            '</div>';
 
-        imageBox.appendChild(image);
-      }
+          return;
 
-      var titleBox =
-        document.createElement("div");
+        }
 
-      titleBox.className =
-        "ashub-post-title";
 
-      titleBox.textContent = title;
+        var fragment =
+          document.createDocumentFragment();
 
-      var arrow =
-        document.createElement("div");
 
-      arrow.className =
-        "ashub-post-arrow";
+        data.feed.entry.forEach(
+          function(entry){
 
-      arrow.textContent = "›";
+            /* ---------------------------------------------
+               TITLE
+               --------------------------------------------- */
 
-      card.appendChild(imageBox);
-      card.appendChild(titleBox);
-      card.appendChild(arrow);
+            var title =
+              entry.title &&
+              entry.title.$t
+                ? entry.title.$t
+                : "Untitled";
 
-      fragment.appendChild(card);
 
-    });
+            /* ---------------------------------------------
+               URL
+               --------------------------------------------- */
 
-    container.replaceChildren(fragment);
+            var url = "#";
 
-  };
 
-  var script =
-    document.createElement("script");
+            if(entry.link){
 
-  script.src = feed;
-  script.async = true;
+              for(
+                var i = 0;
+                i < entry.link.length;
+                i++
+              ){
 
-  document.body.appendChild(script);
+                if(
+                  entry.link[i].rel ===
+                  "alternate"
+                ){
 
-})();
-</script>
+                  url =
+                    entry.link[i].href;
+
+                  break;
+
+                }
+
+              }
+
+            }
+
+
+            /* ---------------------------------------------
+               IMAGE
+               --------------------------------------------- */
+
+            var imageUrl = "";
+
+
+            if(
+              entry.media$thumbnail &&
+              entry.media$thumbnail.url
+            ){
+
+              imageUrl =
+                entry.media$thumbnail.url.replace(
+                  /\/s[0-9]+(-c)?\//,
+                  "/s200/"
+                );
+
+            }
+
+
+            /* ---------------------------------------------
+               POST CARD
+               --------------------------------------------- */
+
+            var card =
+              document.createElement("a");
+
+
+            card.className =
+              "ashub-post";
+
+
+            card.href = url;
+
+
+            card.target =
+              "_blank";
+
+
+            card.rel =
+              "noopener noreferrer";
+
+
+            /* ---------------------------------------------
+               IMAGE BOX
+               --------------------------------------------- */
+
+            var imageBox =
+              document.createElement("div");
+
+
+            imageBox.className =
+              "ashub-post-image";
+
+
+            if(imageUrl){
+
+              var image =
+                document.createElement("img");
+
+
+              image.src =
+                imageUrl;
+
+
+              image.width =
+                72;
+
+
+              image.height =
+                56;
+
+
+              image.alt =
+                "";
+
+
+              image.loading =
+                "lazy";
+
+
+              image.decoding =
+                "async";
+
+
+              imageBox.appendChild(
+                image
+              );
+
+            }
+
+
+            /* ---------------------------------------------
+               TITLE
+               --------------------------------------------- */
+
+            var titleBox =
+              document.createElement("div");
+
+
+            titleBox.className =
+              "ashub-post-title";
+
+
+            titleBox.textContent =
+              title;
+
+
+            /* ---------------------------------------------
+               ARROW
+               --------------------------------------------- */
+
+            var arrow =
+              document.createElement("div");
+
+
+            arrow.className =
+              "ashub-post-arrow";
+
+
+            arrow.textContent =
+              "›";
+
+
+            /* ---------------------------------------------
+               BUILD CARD
+               --------------------------------------------- */
+
+            card.appendChild(
+              imageBox
+            );
+
+            card.appendChild(
+              titleBox
+            );
+
+            card.appendChild(
+              arrow
+            );
+
+
+            fragment.appendChild(
+              card
+            );
+
+          }
+        );
+
+
+        /* -----------------------------------------------
+           REPLACE SKELETONS
+           ----------------------------------------------- */
+
+        container.replaceChildren(
+          fragment
+        );
+
+      };
+
+
+    /* =======================================================
+       LOAD BLOGGER FEED
+       ======================================================= */
+
+    var script =
+      document.createElement(
+        "script"
+      );
+
+
+    script.src =
+      feed;
+
+
+    script.async =
+      true;
+
+
+    document.body.appendChild(
+      script
+    );
+
+
+  })();
+
+  </script>
+
+</body>
+</html>
