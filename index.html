@@ -1,337 +1,119 @@
-<style>
-/* =========================================================
-   theAShub
-   LIGHTWEIGHT LINKTREE STYLE LANDING PAGE
-   ========================================================= */
-
-#ashub-landing{
-  --text:#212428;
-  --muted:#666;
-  --border:#e4e6e8;
-  --hover:#f7f7f7;
-
-  width:100%;
-  min-height:100vh;
-  margin:0;
-  padding:32px 14px 38px;
-
-  background:#fff;
-  color:var(--text);
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-
-  box-sizing:border-box;
-}
-
-#ashub-landing *,
-#ashub-landing *::before,
-#ashub-landing *::after{
-  box-sizing:border-box;
-}
-
-
-/* =========================================================
-   MAIN CONTAINER
-   ========================================================= */
-
-.ashub-wrap{
-  width:100%;
-  max-width:650px;
-  margin:0 auto;
-  text-align:center;
-}
-
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.ashub-logo{
-  margin:0 0 14px;
-}
-
-.ashub-logo img{
-  display:block;
-  width:88px;
-  height:88px;
-  margin:0 auto;
-  object-fit:contain;
-  border-radius:50%;
-}
-
-
-/* =========================================================
-   TITLE
-   ========================================================= */
-
-.ashub-title{
-  margin:0;
-  padding:0;
-
-  color:#212428;
-
-  font-size:26px;
-  line-height:1.3;
-  font-weight:800;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.ashub-description{
-  max-width:570px;
-
-  margin:8px auto 20px;
-
-  color:#666;
-
-  font-size:14px;
-  line-height:1.6;
-}
-
-
-/* =========================================================
-   SOCIAL MEDIA
-   ========================================================= */
-
-.ashub-social{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin:0 0 28px;
-}
-
-.ashub-social a{
-  width:38px;
-  height:38px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:#fff;
-
-  border:1px solid var(--border);
-  border-radius:50%;
-
-  color:#212428;
-
-  text-decoration:none;
-
-  transition:
-    transform .15s ease,
-    background .15s ease;
-}
-
-.ashub-social a:hover{
-  background:#f5f5f5;
-  transform:translateY(-2px);
-}
-
-.ashub-social svg{
-  width:18px;
-  height:18px;
-  display:block;
-}
-
+<!-- theAShub Landing Page -->
+<style>#ashub-landing{--text:#212428;--border:#fac926;width:100%;min-height:100vh;margin:0;padding:32px 14px 38px;box-sizing:border-box;background:transparent;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;}
+#ashub-landing *{box-sizing:border-box;}
+.ashub-wrap{width:100%;max-width:650px;margin:auto;text-align:center;}
+.ashub-logo{margin:0 0 14px;}
+.ashub-logo img{display:block;width:88px;height:88px;margin:auto;object-fit:contain;border-radius:50%;}
+.ashub-title{margin:0;color:#212428;font-size:26px;line-height:1.3;font-weight:700;}
+.ashub-description{max-width:570px;margin:8px auto 20px;color:#212428;
+  font-size:17px;line-height:1.6;}
+.ashub-social{display:flex; align-items:center;justify-content:center;flex-wrap:wrap; gap:8px; margin-bottom:28px;}
+.ashub-social a{display:flex;align-items:center;justify-content:center;width:38px; height:38px;border:1px solid var(--border);border-radius:50%;background:#fff;color:#212428;text-decoration:none;transition:transform .15s ease,background .15s ease;}
+.ashub-social a:hover{transform:translateY(-2px);}
+.ashub-social svg{display:block;width:18px;height:18px;}
 .ashub-social svg path{
-  fill:currentColor;
-}
-
+  fill:currentColor;}
 .ashub-social svg .outline{
   fill:none;
-  stroke:currentColor;
-}
-
+  stroke:currentColor;}
 .ashub-social svg .white{
-  fill:#fff;
-}
-
-
-/* =========================================================
-   LATEST POSTS
-   ========================================================= */
-
-.ashub-latest{
-  width:100%;
-  margin:0;
-  text-align:left;
-}
-
-.ashub-heading{
-  margin:0 0 11px;
-
-  color:#555;
-
-  font-size:13px;
-  line-height:1.4;
-
-  font-weight:800;
-
-  letter-spacing:.6px;
-  text-transform:uppercase;
-}
-
-
-/* =========================================================
-   POST CARD
-   ========================================================= */
-
-.ashub-post{
-  width:100%;
-  min-height:72px;
-
-  display:flex;
-  align-items:center;
-
-  margin:0 0 9px;
-  padding:8px;
-
-  background:#fff;
-
-  border:1px solid var(--border);
-  border-radius:12px;
-
-  color:#212428;
-
-  text-decoration:none;
-
-  transition:
-    background .15s ease,
-    transform .15s ease;
-}
-
-.ashub-post:hover{
-  background:var(--hover);
-  transform:translateY(-1px);
-}
-
-
-/* =========================================================
-   POST IMAGE
-   ========================================================= */
-
-.ashub-post-image{
-  flex:0 0 64px;
-
-  width:64px;
-  height:54px;
-
-  margin-right:11px;
-
-  overflow:hidden;
-
-  border-radius:8px;
-
-  background:#f1f1f1;
-}
-
-.ashub-post-image img{
-  display:block;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-}
-
-
-/* =========================================================
-   POST TITLE
-   ========================================================= */
-
+  fill:#fff;}
+.ashub-latest{ width:100%; text-align:left;}
+.ashub-post{display:flex;align-items:center;width:100%;min-height:72px;margin-bottom:9px;padding:8px;border:1px solid var(--border);border-radius:12px;background:#fff;color:#212428;text-decoration:none;transition:transform .15s ease,background .15s ease;}
+.ashub-post:hover{transform:translateY(-1px);}
+.ashub-post-image{flex:0 0 64px;width:64px;height:54px;margin-right:11px;overflow:hidden;border-radius:8px;background:#fac926;}
+.ashub-post-image img{display:block;width:100%;height:100%;object-fit:cover;}
 .ashub-post-title{
-  flex:1;
-  min-width:0;
-
-  margin:0;
-  padding:0;
-
-  color:#212428;
-
-  font-size:13px;
-  line-height:1.4;
+  flex:1;min-width:0;
+  margin:0;color:#212428;
+  font-size:15px;line-height:1.4;
   font-weight:700;
-
   display:-webkit-box;
   -webkit-line-clamp:2;
   -webkit-box-orient:vertical;
-
   overflow:hidden;
 }
 
-
-/* =========================================================
-   POST ARROW
-   ========================================================= */
-
 .ashub-post-arrow{
   flex:0 0 auto;
-
   margin-left:7px;
-
   color:#888;
-
   font-size:19px;
   line-height:1;
 }
 
+/* Skeleton */
 
-/* =========================================================
-   LOADING
-   ========================================================= */
-
-.ashub-loading{
-  padding:15px 5px;
-
-  color:#777;
-
-  text-align:center;
-
-  font-size:13px;
+.ashub-skeleton{
+  display:flex;
+  align-items:center;
+  width:100%;
+  min-height:72px;
+  margin-bottom:9px;
+  padding:8px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
 }
 
+.ashub-skeleton-image{
+  flex:0 0 64px;
+  width:64px;
+  height:54px;
+  margin-right:11px;
+  border-radius:8px;
+  background:#edf0f3;
+  animation:tashubPulse 1.2s ease-in-out infinite;
+}
 
-/* =========================================================
-   CONTINUE BUTTON
-   ========================================================= */
+.ashub-skeleton-content{
+  flex:1;
+  min-width:0;
+}
+
+.ashub-skeleton-title{
+  display:block;
+  width:92%;
+  height:13px;
+  margin-bottom:8px;
+  border-radius:4px;
+  background:#edf0f3;
+  animation:tashubPulse 1.2s ease-in-out infinite;
+}
+
+.ashub-skeleton-title.short{
+  width:68%;
+}
+
+.ashub-skeleton-meta{
+  display:block;
+  width:35%;
+  height:8px;
+  border-radius:4px;
+  background:#edf0f3;
+  animation:tashubPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes tashubPulse{
+  0%,100%{opacity:.55}
+  50%{opacity:1}
+}
 
 .ashub-continue{
-  width:100%;
-  min-height:52px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
+  width:100%;
+  min-height:52px;
   margin-top:16px;
   padding:13px 18px;
-
+  border-radius:12px;
   background:#212428;
   color:#fff;
-
-  border-radius:12px;
-
   font-size:14px;
   font-weight:700;
-
   text-decoration:none;
-
-  transition:
-    background .15s ease,
-    transform .15s ease;
+  transition:transform .15s ease,background .15s ease;
 }
 
 .ashub-continue:hover{
@@ -339,19 +121,11 @@
   transform:translateY(-1px);
 }
 
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
 .ashub-footer{
   margin-top:25px;
-
   color:#777;
-
   font-size:11px;
   line-height:1.7;
-
   text-align:center;
 }
 
@@ -360,13 +134,7 @@
   text-decoration:none;
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
 @media(max-width:600px){
-
   #ashub-landing{
     padding:25px 11px 32px;
   }
@@ -381,7 +149,7 @@
   }
 
   .ashub-description{
-    font-size:13px;
+    font-size:15px;
   }
 
   .ashub-social{
@@ -398,61 +166,38 @@
     height:17px;
   }
 
-  .ashub-post{
+  .ashub-post,
+  .ashub-skeleton{
     min-height:68px;
   }
 
-  .ashub-post-image{
+  .ashub-post-image,
+  .ashub-skeleton-image{
     flex-basis:58px;
     width:58px;
     height:50px;
   }
 
   .ashub-post-title{
-    font-size:12.5px;
+    font-size:14px;
   }
-
 }
 </style>
-
-
-<!-- =========================================================
-     THEASHUB LANDING PAGE
-     ========================================================= -->
 
 <div id="ashub-landing">
 
   <div class="ashub-wrap">
 
-
-    <!-- =====================================================
-         LOGO
-         ===================================================== -->
-
     <div class="ashub-logo">
-
       <img
         src="YOUR-LOGO-URL"
         width="88"
         height="88"
         alt="theAShub - Education and Career Platform"
         loading="eager">
-
     </div>
 
-
-    <!-- =====================================================
-         SEO-FRIENDLY H1
-         ===================================================== -->
-
-    <h1 class="ashub-title">
-      theAShub
-    </h1>
-
-
-    <!-- =====================================================
-         DESCRIPTION
-         ===================================================== -->
+    <h1 class="ashub-title">theAShub</h1>
 
     <p class="ashub-description">
       Explore educational resources, career guidance, jobs,
@@ -460,397 +205,162 @@
       for learners and aspirants.
     </p>
 
-
-    <!-- =====================================================
-         SOCIAL MEDIA
-         ===================================================== -->
-
     <div class="ashub-social">
 
-
-      <!-- FACEBOOK -->
-
-      <a
-        href="YOUR-FACEBOOK-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook">
-
+      <!-- Instagram -->
+      <a href="YOUR-INSTAGRAM-URL"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v6h4v-6h3.5l.5-4H13V9c0-.7.3-1 1-1z"/>
-
+          <rect x="3" y="3" width="18" height="18" rx="5"
+                class="outline" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4"
+                  class="outline" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.2"/>
         </svg>
-
       </a>
 
-
-      <!-- INSTAGRAM -->
-
-      <a
-        href="YOUR-INSTAGRAM-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram">
-
+      <!-- YouTube -->
+      <a href="YOUR-YOUTUBE-URL"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="YouTube">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <rect
-            x="3"
-            y="3"
-            width="18"
-            height="18"
-            rx="5"
-            class="outline"
-            stroke-width="2"/>
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-            class="outline"
-            stroke-width="2"/>
-
-          <circle
-            cx="17.5"
-            cy="6.5"
-            r="1.2"/>
-
-        </svg>
-
-      </a>
-
-
-      <!-- YOUTUBE -->
-
-      <a
-        href="YOUR-YOUTUBE-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="YouTube">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
           <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2C1.9 9 1.9 12 1.9 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8z"/>
-
-          <path
-            d="M10 9l5 3-5 3V9z"
-            class="white"/>
-
+          <path d="M10 9l5 3-5 3V9z" class="white"/>
         </svg>
-
       </a>
 
-
-      <!-- TELEGRAM -->
-
-      <a
-        href="YOUR-TELEGRAM-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Telegram">
-
+      <!-- Telegram -->
+      <a href="YOUR-TELEGRAM-URL"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Telegram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-
           <path d="M21.5 4.5L18.2 20c-.3 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.6 13.7.7 12.2c-1.1-.3-1.1-1.1.2-1.6L20 4.1c.9-.3 1.7.2 1.5.4z"/>
-
         </svg>
-
       </a>
 
-
-      <!-- LINKEDIN -->
-
-      <a
-        href="YOUR-LINKEDIN-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn">
-
+      <!-- LinkedIn -->
+      <a href="YOUR-LINKEDIN-URL"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <rect
-            x="3"
-            y="3"
-            width="18"
-            height="18"
-            rx="2"
-            class="outline"
-            stroke-width="2"/>
-
-          <path
-            d="M7 10v7M7 7v.1M11 17v-4c0-1.2.8-2 2-2s2 .8 2 2v4M11 10v7"
-            class="outline"
-            stroke-width="2"
-            stroke-linecap="round"/>
-
+          <rect x="3" y="3" width="18" height="18" rx="2"
+                class="outline" stroke-width="2"/>
+          <path d="M7 10v7M7 7v.1M11 17v-4c0-1.2.8-2 2-2s2 .8 2 2v4M11 10v7"
+                class="outline"
+                stroke-width="2"
+                stroke-linecap="round"/>
         </svg>
-
       </a>
 
-
-      <!-- X / TWITTER -->
-
-      <a
-        href="YOUR-X-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="X">
-
+      <!-- X -->
+      <a href="YOUR-X-URL"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="X">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-
           <path d="M5 4h4.5l3.2 4.5L16.5 4H19l-5.2 6 6.2 10H15.5l-3.7-5.4L7.2 20H4.8l5.5-6.4L5 4z"/>
-
         </svg>
-
       </a>
 
-
-      <!-- WHATSAPP -->
-
-      <a
-        href="YOUR-WHATSAPP-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp">
-
+      <!-- WhatsApp -->
+      <a href="YOUR-WHATSAPP-URL"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path
-            d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"
-            class="outline"
-            stroke-width="2"/>
-
+          <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"
+                class="outline"
+                stroke-width="2"/>
           <path d="M9 8.5c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c.7 1.1 1.5 1.8 2.6 2.3l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.3.6-.2.7-.8 1.3-1.5 1.5-1.2.3-3.2-.6-4.6-1.9-1.4-1.3-2.4-3.1-2.3-4.3.1-.5.5-.9 1-1z"/>
-
         </svg>
-
       </a>
-
-
-      <!-- PINTEREST -->
-
-      <a
-        href="YOUR-PINTEREST-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Pinterest">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path d="M12 3a9 9 0 0 0-3.3 17.4c-.1-1.5 0-2.7.4-4l1-4s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.7 1.3 1.5 0 .9-.6 2.2-.9 3.4-.3 1 .5 1.8 1.5 1.8 1.8 0 3.2-1.9 3.2-4.6 0-2.4-1.7-4.1-4.2-4.1-2.9 0-4.6 2.2-4.6 4.4 0 .9.3 1.8.7 2.3.1.1.1.2.1.4l-.3 1.2c-.1.4-.4.5-.7.3-1.3-.6-2.1-2.5-2.1-4 0-3.3 2.4-6.4 7-6.4 3.7 0 6.6 2.6 6.6 6 0 3.6-2.3 6.5-5.5 6.5-1.1 0-2.2-.6-2.6-1.3l-.7 2.6c-.3 1.2-1 2.7-1.5 3.6A9 9 0 0 0 12 21a9 9 0 0 0 0-18z"/>
-
-        </svg>
-
-      </a>
-
-
-      <!-- REDDIT -->
-
-      <a
-        href="YOUR-REDDIT-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Reddit">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <circle
-            cx="12"
-            cy="13"
-            r="7"
-            class="outline"
-            stroke-width="2"/>
-
-          <circle
-            cx="9.5"
-            cy="12"
-            r="1.2"/>
-
-          <circle
-            cx="14.5"
-            cy="12"
-            r="1.2"/>
-
-          <path
-            d="M9 15c1.5 1 4.5 1 6 0"
-            class="outline"
-            stroke-width="1.5"
-            stroke-linecap="round"/>
-
-        </svg>
-
-      </a>
-
-
-      <!-- THREADS -->
-
-      <a
-        href="YOUR-THREADS-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Threads">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path
-            d="M12 3a9 9 0 1 0 8.2 12.7"
-            class="outline"
-            stroke-width="2"
-            stroke-linecap="round"/>
-
-          <path
-            d="M20 12c-1.2-1.7-3.1-2.5-5.4-2.5-2.6 0-4.2 1.2-4.2 3 0 1.7 1.5 2.7 3.8 2.7 2.8 0 4.6-1.5 4.6-4.1 0-4-2.8-6.2-6.8-6.2"
-            class="outline"
-            stroke-width="1.7"
-            stroke-linecap="round"/>
-
-        </svg>
-
-      </a>
-
-
-      <!-- MEDIUM -->
-
-      <a
-        href="YOUR-MEDIUM-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Medium">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path d="M4 7h16v10H4z"/>
-
-          <path
-            d="M7 9l4 3-4 3V9z"
-            class="white"/>
-
-        </svg>
-
-      </a>
-
-
-      <!-- GITHUB -->
-
-      <a
-        href="YOUR-GITHUB-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path d="M12 3a9 9 0 0 0-2.8 17.6c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-4.8 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.7-2.3 4.5-4.5 4.8.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9 9 0 0 0 12 3z"/>
-
-        </svg>
-
-      </a>
-
-
-      <!-- DISCORD -->
-
-      <a
-        href="YOUR-DISCORD-URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Discord">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-          <path d="M19.5 5.5A16 16 0 0 0 16 4.4l-.4.8a14 14 0 0 0-7.2 0L8 4.4a16 16 0 0 0-3.5 1.1C2.3 8.8 1.7 12 2 15.3c1.4 1 2.8 1.7 4.3 2.1l1-1.4c-.5-.2-.9-.4-1.3-.7l.3-.2c2.5 1.2 5.9 1.2 8.4 0l.3.2c-.4.3-.8.5-1.3.7l1 1.4c1.5-.4 2.9-1.1 4.3-2.1.4-3.9-.7-7.1-2.5-9.8z"/>
-
-          <circle
-            cx="9"
-            cy="12"
-            r="1"
-            class="white"/>
-
-          <circle
-            cx="15"
-            cy="12"
-            r="1"
-            class="white"/>
-
-        </svg>
-
-      </a>
-
 
     </div>
 
-
-    <!-- =====================================================
-         LATEST POSTS
-         ===================================================== -->
-
     <section class="ashub-latest">
-
-      <h2 class="ashub-heading">
-        Latest Updates
-      </h2>
-
       <div id="ashub-posts">
 
-        <div class="ashub-loading">
-          Loading latest posts...
+        <!-- Skeleton loader -->
+        <div class="ashub-skeleton">
+          <i class="ashub-skeleton-image"></i>
+          <div class="ashub-skeleton-content">
+            <b class="ashub-skeleton-title"></b>
+            <b class="ashub-skeleton-title short"></b>
+            <small class="ashub-skeleton-meta"></small>
+          </div>
+        </div>
+
+        <div class="ashub-skeleton">
+          <i class="ashub-skeleton-image"></i>
+          <div class="ashub-skeleton-content">
+            <b class="ashub-skeleton-title"></b>
+            <b class="ashub-skeleton-title short"></b>
+            <small class="ashub-skeleton-meta"></small>
+          </div>
+        </div>
+
+        <div class="ashub-skeleton">
+          <i class="ashub-skeleton-image"></i>
+          <div class="ashub-skeleton-content">
+            <b class="ashub-skeleton-title"></b>
+            <b class="ashub-skeleton-title short"></b>
+            <small class="ashub-skeleton-meta"></small>
+          </div>
+        </div>
+
+        <div class="ashub-skeleton">
+          <i class="ashub-skeleton-image"></i>
+          <div class="ashub-skeleton-content">
+            <b class="ashub-skeleton-title"></b>
+            <b class="ashub-skeleton-title short"></b>
+            <small class="ashub-skeleton-meta"></small>
+          </div>
+        </div>
+
+        <div class="ashub-skeleton">
+          <i class="ashub-skeleton-image"></i>
+          <div class="ashub-skeleton-content">
+            <b class="ashub-skeleton-title"></b>
+            <b class="ashub-skeleton-title short"></b>
+            <small class="ashub-skeleton-meta"></small>
+          </div>
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- =====================================================
-         CONTINUE TO WEBSITE
-         ===================================================== -->
-
-    <a
-      class="ashub-continue"
-      href="https://www.theashub.in/"
-      target="_blank"
-      rel="noopener noreferrer">
-
+    <a class="ashub-continue"
+       href="https://www.theashub.in/"
+       target="_blank"
+       rel="noopener noreferrer">
       Continue to theAShub
-
     </a>
 
-
-    <!-- =====================================================
-         FOOTER CREDIT
-         ===================================================== -->
-
     <footer class="ashub-footer">
-
       © 2026
-      <a
-        href="https://www.theashub.in/"
-        target="_blank"
-        rel="noopener noreferrer">
+      <a href="https://www.theashub.in/"
+         target="_blank"
+         rel="noopener noreferrer">
         theAShub
       </a>
-
       <br>
-
       Learn. Explore. Grow.
-
     </footer>
-
 
   </div>
 
 </div>
 
-
 <script>
 (function(){
 
   "use strict";
-
-
-  /* =====================================================
-     SEO META TAGS
-     ===================================================== */
 
   var SEO_TITLE =
     "theAShub - Education, Careers, Jobs & Opportunities";
@@ -864,445 +374,214 @@
   var SHARE_IMAGE =
     "YOUR-LOGO-OR-SHARE-IMAGE-URL";
 
+  var FAVICON_URL =
+    "YOUR-FAVICON-URL";
 
-  /* =====================================================
-     DOCUMENT TITLE
-     ===================================================== */
+  /* SEO */
 
   document.title = SEO_TITLE;
 
+  function meta(name,content,property){
 
-  /* =====================================================
-     HELPER
-     ===================================================== */
+    var selector = property
+      ? 'meta[property="' + property + '"]'
+      : 'meta[name="' + name + '"]';
 
-  function addMeta(name, content, property){
+    var el = document.head.querySelector(selector);
 
-    var selector =
-      property
-        ? 'meta[property="' + property + '"]'
-        : 'meta[name="' + name + '"]';
-
-    var meta =
-      document.head.querySelector(selector);
-
-    if(!meta){
-
-      meta =
-        document.createElement("meta");
+    if(!el){
+      el = document.createElement("meta");
 
       if(property){
-        meta.setAttribute(
-          "property",
-          property
-        );
+        el.setAttribute("property",property);
       }else{
-        meta.setAttribute(
-          "name",
-          name
-        );
+        el.setAttribute("name",name);
       }
 
-      document.head.appendChild(meta);
-
+      document.head.appendChild(el);
     }
 
-    meta.setAttribute(
-      "content",
-      content
-    );
-
+    el.setAttribute("content",content);
   }
 
-
-  /* =====================================================
-     BASIC SEO
-     ===================================================== */
-
-  addMeta(
-    "description",
-    SEO_DESCRIPTION
-  );
-
-  addMeta(
-    "robots",
-    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-  );
-
-  addMeta(
-    "googlebot",
-    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-  );
-
-  addMeta(
-    "author",
-    "theAShub"
-  );
-
-  addMeta(
-    "theme-color",
-    "#ffffff"
-  );
-
-
-  /* =====================================================
-     CANONICAL
-     ===================================================== */
+  meta("description",SEO_DESCRIPTION);
+  meta("robots","index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+  meta("googlebot","index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+  meta("author","theAShub");
+  meta("theme-color","#ffffff");
+  meta("format-detection","telephone=no");
 
   var canonical =
-    document.head.querySelector(
-      'link[rel="canonical"]'
-    );
+    document.head.querySelector('link[rel="canonical"]');
 
   if(!canonical){
-
-    canonical =
-      document.createElement("link");
-
-    canonical.rel =
-      "canonical";
-
-    document.head.appendChild(
-      canonical
-    );
-
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.appendChild(canonical);
   }
 
-  canonical.href =
-    SITE_URL;
+  canonical.href = SITE_URL;
 
+  if(FAVICON_URL.indexOf("YOUR-") !== 0){
 
-  /* =====================================================
-     OPEN GRAPH
-     ===================================================== */
+    var favicon =
+      document.head.querySelector('link[rel="icon"]');
 
-  addMeta(
-    "",
-    "website",
-    "og:type"
-  );
+    if(!favicon){
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      favicon.type = "image/png";
+      document.head.appendChild(favicon);
+    }
 
-  addMeta(
-    "",
-    SEO_TITLE,
-    "og:title"
-  );
-
-  addMeta(
-    "",
-    SEO_DESCRIPTION,
-    "og:description"
-  );
-
-  addMeta(
-    "",
-    SITE_URL,
-    "og:url"
-  );
-
-  addMeta(
-    "",
-    "theAShub",
-    "og:site_name"
-  );
-
-  if(
-    SHARE_IMAGE &&
-    SHARE_IMAGE.indexOf("YOUR-") !== 0
-  ){
-
-    addMeta(
-      "",
-      SHARE_IMAGE,
-      "og:image"
-    );
-
+    favicon.href = FAVICON_URL;
   }
 
+  meta("","website","og:type");
+  meta("",SEO_TITLE,"og:title");
+  meta("",SEO_DESCRIPTION,"og:description");
+  meta("",SITE_URL,"og:url");
+  meta("","theAShub","og:site_name");
 
-  /* =====================================================
-     TWITTER / X
-     ===================================================== */
+  meta("twitter:card","summary_large_image");
+  meta("twitter:title",SEO_TITLE);
+  meta("twitter:description",SEO_DESCRIPTION);
 
-  addMeta(
-    "twitter:card",
-    "summary_large_image"
-  );
-
-  addMeta(
-    "twitter:title",
-    SEO_TITLE
-  );
-
-  addMeta(
-    "twitter:description",
-    SEO_DESCRIPTION
-  );
-
-  if(
-    SHARE_IMAGE &&
-    SHARE_IMAGE.indexOf("YOUR-") !== 0
-  ){
-
-    addMeta(
-      "twitter:image",
-      SHARE_IMAGE
-    );
-
+  if(SHARE_IMAGE.indexOf("YOUR-") !== 0){
+    meta("","", "");
+    meta("twitter:image",SHARE_IMAGE);
+    meta("","", "");
+    meta("og:image",SHARE_IMAGE);
   }
 
+  /* Blogger Posts */
 
-  /* =====================================================
-     LATEST POSTS
-     ===================================================== */
+  var count = 5;
 
-  var POST_COUNT = 5;
-
-  var FEED_URL =
+  var feed =
     "https://www.theashub.in/feeds/posts/default" +
     "?alt=json-in-script" +
-    "&max-results=" +
-    POST_COUNT +
+    "&max-results=" + count +
     "&callback=ashubLatestPosts";
-
-
-  /* =====================================================
-     BLOGGER JSONP CALLBACK
-     ===================================================== */
 
   window.ashubLatestPosts = function(data){
 
     var container =
-      document.getElementById(
-        "ashub-posts"
-      );
+      document.getElementById("ashub-posts");
 
-    if(!container){
-      return;
-    }
+    if(!container) return;
 
-    container.innerHTML = "";
-
-
-    if(
-      !data ||
-      !data.feed ||
-      !data.feed.entry ||
-      !data.feed.entry.length
-    ){
+    if(!data ||
+       !data.feed ||
+       !data.feed.entry ||
+       !data.feed.entry.length){
 
       container.innerHTML =
-        '<div class="ashub-loading">' +
-        'No latest posts available.' +
-        '</div>';
+        '<div class="ashub-loading">No latest posts available.</div>';
 
       return;
-
     }
 
+    var fragment = document.createDocumentFragment();
 
-    data.feed.entry.forEach(
-      function(entry){
+    data.feed.entry.forEach(function(entry){
 
-        /* =========================
-           TITLE
-           ========================= */
+      var title =
+        entry.title && entry.title.$t
+          ? entry.title.$t
+          : "Untitled";
 
-        var title =
-          entry.title &&
-          entry.title.$t
-            ? entry.title.$t
-            : "Untitled";
+      var url = "#";
 
+      if(entry.link){
 
-        /* =========================
-           URL
-           ========================= */
+        for(var i=0;i<entry.link.length;i++){
 
-        var postUrl =
-          "#";
-
-        if(entry.link){
-
-          for(
-            var i = 0;
-            i < entry.link.length;
-            i++
-          ){
-
-            if(
-              entry.link[i].rel ===
-              "alternate"
-            ){
-
-              postUrl =
-                entry.link[i].href;
-
-              break;
-
-            }
-
+          if(entry.link[i].rel === "alternate"){
+            url = entry.link[i].href;
+            break;
           }
 
         }
 
-
-        /* =========================
-           IMAGE
-           ========================= */
-
-        var imageUrl =
-          "";
-
-        if(
-          entry.media$thumbnail &&
-          entry.media$thumbnail.url
-        ){
-
-          imageUrl =
-            entry.media$thumbnail.url.replace(
-              /\/s[0-9]+(-c)?\//,
-              "/s200/"
-            );
-
-        }
-
-
-        /* =========================
-           CARD
-           ========================= */
-
-        var card =
-          document.createElement("a");
-
-        card.className =
-          "ashub-post";
-
-        card.href =
-          postUrl;
-
-        card.target =
-          "_blank";
-
-        card.rel =
-          "noopener noreferrer";
-
-
-        /* =========================
-           IMAGE
-           ========================= */
-
-        var imageBox =
-          document.createElement("div");
-
-        imageBox.className =
-          "ashub-post-image";
-
-
-        if(imageUrl){
-
-          var image =
-            document.createElement("img");
-
-          image.src =
-            imageUrl;
-
-          image.width =
-            64;
-
-          image.height =
-            54;
-
-          image.alt =
-            "";
-
-          image.loading =
-            "lazy";
-
-          image.decoding =
-            "async";
-
-          imageBox.appendChild(
-            image
-          );
-
-        }
-
-
-        /* =========================
-           TITLE
-           ========================= */
-
-        var titleBox =
-          document.createElement("div");
-
-        titleBox.className =
-          "ashub-post-title";
-
-        titleBox.textContent =
-          title;
-
-
-        /* =========================
-           ARROW
-           ========================= */
-
-        var arrow =
-          document.createElement("div");
-
-        arrow.className =
-          "ashub-post-arrow";
-
-        arrow.textContent =
-          "›";
-
-
-        /* =========================
-           BUILD CARD
-           ========================= */
-
-        card.appendChild(
-          imageBox
-        );
-
-        card.appendChild(
-          titleBox
-        );
-
-        card.appendChild(
-          arrow
-        );
-
-
-        container.appendChild(
-          card
-        );
-
       }
-    );
+
+      var imageUrl = "";
+
+      if(entry.media$thumbnail &&
+         entry.media$thumbnail.url){
+
+        imageUrl =
+          entry.media$thumbnail.url.replace(
+            /\/s[0-9]+(-c)?\//,
+            "/s200/"
+          );
+      }
+
+      var card =
+        document.createElement("a");
+
+      card.className = "ashub-post";
+      card.href = url;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+
+      var imageBox =
+        document.createElement("div");
+
+      imageBox.className =
+        "ashub-post-image";
+
+      if(imageUrl){
+
+        var image =
+          document.createElement("img");
+
+        image.src = imageUrl;
+        image.width = 64;
+        image.height = 54;
+        image.alt = "";
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        imageBox.appendChild(image);
+      }
+
+      var titleBox =
+        document.createElement("div");
+
+      titleBox.className =
+        "ashub-post-title";
+
+      titleBox.textContent = title;
+
+      var arrow =
+        document.createElement("div");
+
+      arrow.className =
+        "ashub-post-arrow";
+
+      arrow.textContent = "›";
+
+      card.appendChild(imageBox);
+      card.appendChild(titleBox);
+      card.appendChild(arrow);
+
+      fragment.appendChild(card);
+
+    });
+
+    container.replaceChildren(fragment);
 
   };
 
+  var script =
+    document.createElement("script");
 
-  /* =====================================================
-     LOAD BLOGGER FEED
-     ===================================================== */
+  script.src = feed;
+  script.async = true;
 
-  var feedScript =
-    document.createElement(
-      "script"
-    );
-
-  feedScript.src =
-    FEED_URL;
-
-  feedScript.async =
-    true;
-
-  document.body.appendChild(
-    feedScript
-  );
-
+  document.body.appendChild(script);
 
 })();
 </script>
