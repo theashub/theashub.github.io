@@ -343,7 +343,6 @@
 
     .ashub-continue{
       display:flex;
-
       align-items:center;
       justify-content:center;
 
@@ -356,11 +355,11 @@
       padding:14px 18px;
 
       border-radius:12px;
+      border:1px solid #fac926;
+      background:transparent;
+      color:#212428;
 
-      background:#212428;
-      color:#fff;
-
-      font-size:15px;
+      font-size:17px;
       line-height:1.3;
 
       font-weight:700;
@@ -374,7 +373,6 @@
     }
 
     .ashub-continue:hover{
-      background:#111;
       transform:translateY(-1px);
     }
 
@@ -874,74 +872,40 @@
               <b class="ashub-skeleton-title short"></b>
 
               <small class="ashub-skeleton-meta"></small>
-
             </div>
-
           </div>
-
-
         </div>
-
       </section>
-
-
       <!-- CONTINUE -->
-
       <a
         class="ashub-continue"
         href="https://www.theashub.in/"
         target="_blank"
         rel="noopener noreferrer">
-
-        Continue to theAShub
-
+        Continue to Website
       </a>
-
-
       <!-- FOOTER -->
-
       <footer class="ashub-footer">
-
-        © 2026
-
+        © 
         <a
           href="https://www.theashub.in/"
           target="_blank"
           rel="noopener noreferrer">
-
           theAShub
-
         </a>
-
-        <br>
-
-        Learn. Explore. Grow.
-
+        | Owner & Founder: Anurag Singh
       </footer>
-
-
     </div>
-
   </div>
-
-
   <!-- =======================================================
-       JAVASCRIPT
-       ======================================================= -->
-
+       JAVASCRIPT       ======================================================= -->
   <script>
-
   (function(){
-
     "use strict";
-
-
     /* =======================================================
-       SEO
-       ======================================================= */
-
+       SEO      ======================================================= */
     var SEO_TITLE =
-      "theAShub - Education, Careers, Jobs & Opportunities";
+      "theAShub | The Complete Place for Learners and Aspirants";
 
     var SEO_DESCRIPTION =
       "theAShub helps learners and aspirants discover educational resources, career guidance, jobs, opportunities, important notifications and useful updates in one place.";
@@ -950,165 +914,106 @@
       "https://www.theashub.in/";
 
     var SHARE_IMAGE =
-      "YOUR-LOGO-OR-SHARE-IMAGE-URL";
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600/image1787579067";
 
     var FAVICON_URL =
-      "YOUR-FAVICON-URL";
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600/image1787579067";
 
 
     /* =======================================================
-       PAGE TITLE
-       ======================================================= */
-
+       PAGE TITLE      ======================================================= */
     document.title = SEO_TITLE;
-
-
     /* =======================================================
-       META HELPER
-       ======================================================= */
-
+       META HELPER       ======================================================= */
     function setMeta(name,content,property){
-
       var selector;
-
       if(property){
-
         selector =
           'meta[property="' + property + '"]';
-
       }else{
-
         selector =
           'meta[name="' + name + '"]';
-
       }
-
-
       var el =
         document.head.querySelector(selector);
-
-
       if(!el){
-
         el =
           document.createElement("meta");
-
-
         if(property){
-
           el.setAttribute(
             "property",
             property
           );
-
         }else{
-
           el.setAttribute(
             "name",
             name
           );
-
         }
-
-
         document.head.appendChild(el);
-
       }
-
-
       el.setAttribute(
         "content",
         content
       );
-
     }
-
-
     /* =======================================================
        SEO META
        ======================================================= */
-
     setMeta(
       "description",
       SEO_DESCRIPTION
     );
-
     setMeta(
       "robots",
       "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     );
-
     setMeta(
       "googlebot",
       "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     );
-
     setMeta(
       "author",
       "theAShub"
     );
-
     setMeta(
       "theme-color",
       "#ffffff"
     );
-
     setMeta(
       "format-detection",
       "telephone=no"
     );
-
-
     /* =======================================================
-       CANONICAL
-       ======================================================= */
-
+       CANONICAL       ======================================================= */
     var canonical =
       document.head.querySelector(
         'link[rel="canonical"]'
       );
-
-
     if(!canonical){
-
       canonical =
         document.createElement("link");
-
       canonical.rel = "canonical";
-
       document.head.appendChild(
         canonical
       );
-
     }
-
-
     canonical.href = SITE_URL;
-
-
     /* =======================================================
-       FAVICON
-       ======================================================= */
-
+       FAVICON ======================================================= */
     if(
       FAVICON_URL &&
       FAVICON_URL.indexOf("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvdoA_MohUU49dqDN28Manv-aPatozIkkVboRFK2kxrtJB6yRC9Ut-NKzsM9puX1on_FZgpihab9SCbA1JHz_YU5xIlbvQljyPnZse1zu1mA3dFvJumSYNjY88zk8tqstgKmPki00hHIH96dBVzT3je5YmlVYGWp8qiUwzmjvdO-AiQ/s1600/image1787579067") !== 0
     ){
-
       var favicon =
         document.head.querySelector(
           'link[rel="icon"]'
         );
-
-
       if(!favicon){
-
         favicon =
           document.createElement("link");
-
         favicon.rel = "icon";
         favicon.type = "image/png";
-
         document.head.appendChild(
           favicon
         );
