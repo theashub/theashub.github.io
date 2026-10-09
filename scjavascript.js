@@ -1,4 +1,4 @@
-<script>
+
 (function(){
 "use strict";
 /* =========================
@@ -1054,4 +1054,3 @@ document.body.appendChild(
   feedScript
 );
 })();
-</script>
