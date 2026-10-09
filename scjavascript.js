@@ -1,4 +1,1622 @@
+/* =========================================================
+   <!--Search Option Coding | Explore by Category or Location--><!--Search Option Coding | Explore by Category or Location-->
+   <!--Search Option Coding | Explore by Category or Location--><!--Search Option Coding | Explore by Category or Location-->
+   ========================================================= */
+(function(){
+"use strict";
+const ASHUB_URL =
+    "https://www.theashub.in";
+const ASPIRANTS_LABEL =
+    "AspirantsNotifications";
+const DAYS_LIMIT =
+    35;
+const FEED_BATCH_SIZE =
+    25;
+const CATEGORIES = [
+    ["Agriculture Jobs","Agriculture Jobs"],
+    ["Apprenticeship","Apprenticeship"],
+    ["Banking Jobs","Banking Jobs"],
+    ["Civil Services Jobs","Civil Services Jobs"],
+    ["Competition Opportunities","Competition"],
+    ["Content Writer Jobs","Content Writer Jobs"],
+    ["Defence and Police Jobs","Defence and Police Jobs"],
+  	["DSSSB Jobs","DSSSB"],
+    ["Fellowship Programs","Fellowship"],
+    ["Freelancing Opportunities","Freelancing"],
+	["Government Jobs","Government Jobs"],
+    ["Hackathon","Hackathon"],
+    ["Healthcare Jobs","Healthcare Jobs"],
+    ["International Jobs","International Jobs"],
+    ["Internship Opportunities","Internship"],
+    ["Journalism Jobs","Journalism Jobs"],
+    ["Post Office Jobs","Post Office Jobs"],
+    ["PSU Jobs","PSU Jobs"],
+    ["Railway Jobs","Railway Jobs"],
+    ["Sports Quota Jobs","Sports Quota Jobs"],
+    ["SSC Jobs","SSC"],
+    ["Teaching Jobs","Teaching Jobs"],
+    ["Telecom Jobs","Telecom Jobs"],
+    ["Video Contest","Video Contest"],
+    ["Work From Home","Work From Home"],
+    ["8th Pass Jobs","8th Pass Jobs"]
+];
+/* LOCATIONS */
+const LOCATIONS = [
+    ["Delhi","Delhi"],
+    ["Mumbai","Mumbai"],
+    ["Kolkata","Kolkata"],
+    ["Chennai","Chennai"],
+    ["Hyderabad","Hyderabad"],
+    ["Lucknow","Lucknow"],
+    ["Prayagraj","Prayagraj"],
+    ["Gorakhpur","Gorakhpur"],
+    ["Noida","Noida"],
+    ["Uttar Pradesh","Uttar Pradesh"],
+    ["Pan India","Pan India"],
+    ["Remote","Remote"]
+];
+const popup =
+    document.getElementById(
+        "ashubSearchPopup"
+    );
+const dialog =
+    document.getElementById(
+        "ashubPopupDialog"
+    );
+const openButton =
+    document.getElementById(
+        "ashubOpenSearch"
+    );
+const closeButton =
+    document.getElementById(
+        "ashubPopupClose"
+    );
+const searchButton =
+    document.getElementById(
+        "ashubSearchButton"
+    );
+const loadingBox =
+    document.getElementById(
+        "ashubSearchLoading"
+    );
+const categorySelect =
+    document.getElementById(
+        "ashubCategory"
+    );
+const locationSelect =
+    document.getElementById(
+        "ashubLocation"
+    );
+const results =
+    document.getElementById(
+        "ashubResults"
+    );
+/* STATE */
+let allPosts = [];
+let filteredPosts = [];
+let postsLoaded = false;
+let searching = false;
+let dropdownsReady = false;
+let lastFocusedElement = null;
+/* HELPERS */
+function normalize(value){
+    return String(value || "")
+        .toLowerCase()
+        .replace(/\s+/g," ")
+        .trim();
+}
+function cleanText(value){
+    return String(value || "")
+        .replace(/\u00a0/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+}
+function safeURL(url){
+    if(!url){
+        return "";
+    }
+    try{
+        const parsed =
+            new URL(
+                url,
+                ASHUB_URL
+            );
+        if(
+            parsed.protocol !== "http:" &&
+            parsed.protocol !== "https:"
+        ){
+            return "";
+        }
+        return parsed.href;
+    }
+    catch(error){
+        return "";
+    }
+}
+function formatDate(date){
+    if(!date){
+        return "";
+    }
+    const parsed =
+        new Date(date);
+    if(
+        Number.isNaN(
+            parsed.getTime()
+        )
+    ){
+        return "";
+    }
+    return parsed.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"short",
+            year:"numeric"
+        }
+    );
+}
+/* 35-DAY FILTER */
+function getCutoffDate(){
+    const now =
+        new Date();
+    return new Date(
+        now.getTime() -
+        DAYS_LIMIT *
+        24 *
+        60 *
+        60 *
+        1000
+    );
+}
+function isRecentPost(date){
+    if(!date){
+        return false;
+    }
+    const published =
+        new Date(date);
+    if(
+        Number.isNaN(
+            published.getTime()
+        )
+    ){
+        return false;
+    }
+    return (
+        published >=
+        getCutoffDate()
+    );
+}
+/*OPEN POPUP*/
+function openSearchPopup(){
+    if(!popup){
+        return;
+    }
+    lastFocusedElement =
+        document.activeElement;
+    popup.classList.add(
+        "is-open"
+    );
+    popup.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+    document.body.classList.add(
+        "ashub-popup-open"
+    );
+    populateDropdowns();
+    /*
+     * Clear old visible results.
+     *
+     * The feed itself remains cached.
+     */
+    results.innerHTML =
+        "";
+    requestAnimationFrame(
+        function(){
+            categorySelect?.focus();
+        }
+    );
+}
+/* CLOSE POPUP */
+function closeSearchPopup(){
+    if(!popup){
+        return;
+    }
+    popup.classList.remove(
+        "is-open"
+    );
+    popup.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+    document.body.classList.remove(
+        "ashub-popup-open"
+    );
+    setSearchLoading(
+        false
+    );
+    if(
+        lastFocusedElement &&
+        typeof lastFocusedElement.focus ===
+        "function"
+    ){
+        lastFocusedElement.focus();
+    }
+}
+/* DROPDOWNS */
+function populateDropdowns(){
+    if(
+        dropdownsReady ||
+        !categorySelect ||
+        !locationSelect
+    ){
+        return;
+    }
+    CATEGORIES.forEach(
+        function(item){
+            const option =
+                document.createElement(
+                    "option"
+                );
+            option.value =
+                item[1];
+            option.textContent =
+                item[0];
+            categorySelect.appendChild(
+                option
+            );
+        }
+    );
+    LOCATIONS.forEach(
+        function(item){
 
+            const option =
+                document.createElement(
+                    "option"
+                );
+            option.value =
+                item[1];
+            option.textContent =
+                item[0];
+            locationSelect.appendChild(
+                option
+            );
+
+        }
+    );
+    dropdownsReady =
+        true;
+}
+function setSearchLoading(show){
+    if(
+        !dialog ||
+        !loadingBox
+    ){
+
+        return;
+    }
+    if(show){
+        dialog.classList.add(
+            "is-searching"
+        );
+        loadingBox.classList.add(
+            "is-visible"
+        );
+        loadingBox.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+        searchButton.disabled =
+            true;
+    }
+    else{
+        dialog.classList.remove(
+            "is-searching"
+        );
+        loadingBox.classList.remove(
+            "is-visible"
+        );
+        loadingBox.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+        searchButton.disabled =
+            false;
+    }
+}
+/* BLOGGER FEED */
+async function getPosts(){
+    const recentPosts =
+        [];
+    let startIndex =
+        1;
+    let shouldContinue =
+        true;
+    while(shouldContinue){
+        const feedURL =
+            ASHUB_URL +
+            "/feeds/posts/default/-/" +
+            encodeURIComponent(
+                ASPIRANTS_LABEL
+            ) +
+            "?alt=json" +
+            "&start-index=" +
+            startIndex +
+            "&max-results=" +
+            FEED_BATCH_SIZE;
+        try{
+            const response =
+                await fetch(
+                    feedURL,
+                    {
+                        method:"GET",
+                        credentials:"omit",
+                        cache:"default"
+                    }
+                );
+            if(!response.ok){
+                throw new Error(
+                    "Feed request failed: " +
+                    response.status
+                );
+            }
+            const data =
+                await response.json();
+            const entries =
+                data.feed?.entry ||
+                [];
+            /*
+             * No more posts.
+             */
+            if(
+                !entries.length
+            ){
+                break;
+            }
+            /*
+             * Process newest first.
+             */
+            for(
+                let i = 0;
+                i < entries.length;
+                i++
+            ){
+
+                const entry =
+                    entries[i];
+
+
+                const published =
+                    entry.published?.$t ||
+                    entry.updated?.$t ||
+                    "";
+                if(
+                    published &&
+                    !isRecentPost(
+                        published
+                    )
+                ){
+
+                    shouldContinue =
+                        false;
+
+                    break;
+
+                }
+                const post =
+                    parsePost(
+                        entry
+                    );
+                if(post.url){
+                    recentPosts.push(
+                        post
+                    );
+                }
+            }
+            if(
+                entries.length <
+                FEED_BATCH_SIZE
+            ){
+                break;
+            }
+            startIndex +=
+                FEED_BATCH_SIZE;
+        }
+        catch(error){
+
+            console.error(
+                "theAShub feed error:",
+                error
+            );
+            break;
+        }
+    }
+    return recentPosts
+        .filter(
+            function(post){
+                return isRecentPost(
+                    post.date
+                );
+            }
+        )
+        .sort(
+            function(a,b){
+                return (
+                    new Date(b.date) -
+                    new Date(a.date)
+                );
+            }
+        );
+}
+function parsePost(entry){
+    let url = "";
+    const alternate =
+        entry.link?.find(
+            function(link){
+
+                return (
+                    link.rel ===
+                    "alternate"
+                );
+
+            }
+        );
+    if(alternate){
+        url =
+            safeURL(
+                alternate.href
+            );
+    }
+    const title =
+        entry.title?.$t ||
+        "Untitled";
+    const date =
+        entry.published?.$t ||
+        entry.updated?.$t ||
+        "";
+    const html =
+        entry.content?.$t ||
+        entry.summary?.$t ||
+        "";
+    const labels =
+        entry.category?.map(
+            function(category){
+                return normalize(
+                    category.term
+                );
+            }
+        ) || [];
+    let image =
+        "";
+    const imageMatch =
+        html.match(
+            /<img[^>]+(?:src|data-src)=["']([^"']+)["']/i
+        );
+    if(imageMatch){
+        image =
+            imageMatch[1];
+    }
+    if(
+        !image &&
+        entry.media$thumbnail?.url
+    ){
+        image =
+            entry.media$thumbnail.url;
+    }
+    if(image){
+        image =
+            image
+                .replace(
+                    /\/s\d+(-c)?\//i,
+                    "/s600/"
+                )
+                .replace(
+                    /\/w\d+-h\d+(-c)?\//i,
+                    "/s600/"
+                )
+                .replace(
+                    /\/s72-c\//i,
+                    "/s600/"
+                );
+    }
+    const quick =
+        getQuickInfo(
+            html
+        );
+    return {
+        title:
+            cleanText(
+                title
+            ),
+        url:
+            url,
+        date:
+            date,
+        labels:
+            labels,
+
+        image:
+            image,
+
+        quick:
+            quick,
+
+        searchableText:
+            normalize(
+                title +
+                " " +
+                labels.join(" ") +
+                " " +
+                Object.values(
+                    quick
+                ).join(" ")
+            )
+
+    };
+}
+function getQuickInfo(html){
+    const data = {
+        location:"",
+        eligibility:"",
+        benefit:"",
+        whatToDo:"",
+        deadline:"",
+        salary:"",
+        posts:"",
+        course:"",
+        selectionProcess:""
+    };
+    if(!html){
+
+        return data;
+
+    }
+
+
+    const doc =
+        new DOMParser()
+            .parseFromString(
+                html,
+                "text/html"
+            );
+
+
+    const container =
+        doc.querySelector(
+            ".theashub-highlights-quick"
+        );
+
+
+    if(!container){
+
+        return data;
+
+    }
+
+
+    function findValue(label){
+
+        const wanted =
+            normalize(
+                label
+            );
+
+
+        const elements =
+            container.querySelectorAll(
+                "div,p,li,td,tr,dt,dd,span,strong,b"
+            );
+
+
+        for(
+            let i = 0;
+            i < elements.length;
+            i++
+        ){
+
+            const element =
+                elements[i];
+
+
+            const value =
+                cleanText(
+                    element.innerText ||
+                    element.textContent
+                );
+
+
+            if(!value){
+
+                continue;
+
+            }
+
+
+            const normalizedValue =
+                normalize(
+                    value
+                );
+
+
+            /*
+             * Supports:
+             *
+             * Location: Delhi
+             * Location - Delhi
+             */
+
+            const prefix =
+                new RegExp(
+                    "^" +
+                    label.replace(
+                        /[-\/\\^$*+?.()|[\]{}]/g,
+                        "\\$&"
+                    ) +
+                    "\\s*[:\\-]\\s*(.+)$",
+                    "i"
+                );
+
+
+            const match =
+                value.match(
+                    prefix
+                );
+
+
+            if(match){
+
+                return cleanText(
+                    match[1]
+                );
+
+            }
+
+
+            /*
+             * Supports:
+             *
+             * <strong>Location</strong>
+             * <span>Delhi</span>
+             */
+
+            if(
+                normalizedValue ===
+                wanted
+            ){
+
+                const next =
+                    element.nextElementSibling;
+
+
+                if(next){
+
+                    const nextValue =
+                        cleanText(
+                            next.innerText ||
+                            next.textContent
+                        );
+
+
+                    if(
+                        nextValue &&
+                        normalize(
+                            nextValue
+                        ) !== wanted
+                    ){
+
+                        return nextValue;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+        return "";
+
+    }
+
+
+    data.location =
+        findValue(
+            "Location"
+        );
+
+
+    data.eligibility =
+        findValue(
+            "Eligibility"
+        );
+
+
+    data.benefit =
+        findValue(
+            "Benefit"
+        );
+
+
+    data.whatToDo =
+        findValue(
+            "What To Do"
+        ) ||
+        findValue(
+            "How To Apply"
+        );
+
+
+    data.deadline =
+        findValue(
+            "Deadline"
+        );
+
+
+    data.salary =
+        findValue(
+            "Salary"
+        );
+
+
+    data.posts =
+        findValue(
+            "Post"
+        );
+
+
+    data.course =
+        findValue(
+            "Course"
+        );
+
+
+    data.selectionProcess =
+        findValue(
+            "Selection Process"
+        );
+
+
+    return data;
+
+}
+
+
+/* =========================================================
+   FILTER POSTS
+========================================================= */
+
+function filterPosts(
+    category,
+    location
+){
+
+    const normalizedCategory =
+        normalize(
+            category
+        );
+
+
+    const normalizedLocation =
+        normalize(
+            location
+        );
+
+
+    return allPosts.filter(
+        function(post){
+
+            /*
+             * Final 35-day safety check.
+             */
+
+            if(
+                !isRecentPost(
+                    post.date
+                )
+            ){
+
+                return false;
+
+            }
+
+
+            /*
+             * CATEGORY
+             */
+
+            const categoryMatch =
+                !normalizedCategory ||
+                post.labels.includes(
+                    normalizedCategory
+                );
+
+
+            /*
+             * LOCATION
+             */
+
+            const locationMatch =
+                !normalizedLocation ||
+
+                post.labels.includes(
+                    normalizedLocation
+                ) ||
+
+                normalize(
+                    post.quick.location
+                ).includes(
+                    normalizedLocation
+                ) ||
+
+                post.searchableText.includes(
+                    normalizedLocation
+                );
+
+
+            return (
+                categoryMatch &&
+                locationMatch
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+async function searchPosts(){
+
+    if(searching){
+
+        return;
+
+    }
+
+
+    searching =
+        true;
+
+
+    setSearchLoading(
+        true
+    );
+
+
+    results.innerHTML =
+        "";
+
+
+    const category =
+        categorySelect?.value ||
+        "";
+
+
+    const location =
+        locationSelect?.value ||
+        "";
+
+
+    /*
+     * Give browser one frame
+     * to display the loading state.
+     */
+
+    await new Promise(
+        function(resolve){
+
+            requestAnimationFrame(
+                resolve
+            );
+
+        }
+    );
+
+
+    /*
+     * Fetch feed only once
+     * during this page session.
+     */
+
+    if(!postsLoaded){
+
+        allPosts =
+            await getPosts();
+
+        postsLoaded =
+            true;
+
+    }
+
+
+    /*
+     * Apply filters.
+     */
+
+    filteredPosts =
+        filterPosts(
+            category,
+            location
+        );
+
+
+    /*
+     * No results.
+     */
+
+    if(
+        !filteredPosts.length
+    ){
+
+        showNoResults();
+
+        setSearchLoading(
+            false
+        );
+
+        searching =
+            false;
+
+        return;
+
+    }
+
+
+    /*
+     * Render results.
+     */
+
+    renderResults();
+
+
+    requestAnimationFrame(
+        function(){
+
+            setSearchLoading(
+                false
+            );
+
+        }
+    );
+
+
+    searching =
+        false;
+
+}
+
+
+/* =========================================================
+   RENDER RESULTS
+========================================================= */
+
+function renderResults(){
+
+    const fragment =
+        document.createDocumentFragment();
+
+
+    filteredPosts.forEach(
+        function(post){
+
+            fragment.appendChild(
+                createPostElement(
+                    post
+                )
+            );
+
+        }
+    );
+
+
+    results.appendChild(
+        fragment
+    );
+
+}
+
+
+/* =========================================================
+   CREATE POST CARD
+========================================================= */
+
+function createPostElement(post){
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+
+    article.className =
+        "ashub-post";
+
+
+    article.setAttribute(
+        "role",
+        "link"
+    );
+
+
+    article.setAttribute(
+        "tabindex",
+        "0"
+    );
+
+
+    article.dataset.url =
+        safeURL(
+            post.url
+        );
+
+
+    /*
+     * IMAGE
+     */
+
+    const imageWrap =
+        document.createElement(
+            "div"
+        );
+
+
+    imageWrap.className =
+        "ashub-post-image-wrap";
+
+
+    if(post.image){
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+
+        image.className =
+            "ashub-post-image";
+
+
+        image.src =
+            post.image;
+
+
+        image.alt =
+            post.title;
+
+
+        /*
+         * Lazy loading keeps
+         * initial popup fast.
+         */
+
+        image.loading =
+            "lazy";
+
+
+        image.decoding =
+            "async";
+
+
+        image.addEventListener(
+            "error",
+            function(){
+
+                imageWrap.innerHTML =
+                    '<div class="ashub-no-image">No Image</div>';
+
+            },
+            {
+                once:true
+            }
+        );
+
+
+        imageWrap.appendChild(
+            image
+        );
+
+    }
+
+    else{
+
+        imageWrap.innerHTML =
+            '<div class="ashub-no-image">No Image</div>';
+
+    }
+
+
+    /*
+     * CONTENT
+     */
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+
+    content.className =
+        "ashub-post-content";
+
+
+    /*
+     * TITLE
+     */
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+
+    title.className =
+        "ashub-post-title";
+
+
+    title.textContent =
+        post.title;
+
+
+    content.appendChild(
+        title
+    );
+
+
+    /*
+     * DATE
+     */
+
+    const date =
+        document.createElement(
+            "div"
+        );
+
+
+    date.className =
+        "ashub-post-date";
+
+
+    date.textContent =
+        formatDate(
+            post.date
+        );
+
+
+    if(date.textContent){
+
+        content.appendChild(
+            date
+        );
+
+    }
+
+
+    /*
+     * QUICK INFORMATION
+     */
+
+    const quickInfo =
+        buildQuickInfo(
+            post.quick
+        );
+
+
+    if(quickInfo){
+
+        content.appendChild(
+            quickInfo
+        );
+
+    }
+
+
+    article.appendChild(
+        imageWrap
+    );
+
+
+    article.appendChild(
+        content
+    );
+
+
+    return article;
+
+}
+
+
+/* =========================================================
+   QUICK INFO
+========================================================= */
+
+function buildQuickInfo(quick){
+
+    const fields = [
+
+        ["Location",quick.location],
+
+        ["Eligibility",quick.eligibility],
+
+        ["Benefit",quick.benefit],
+
+        ["What To Do",quick.whatToDo],
+
+        ["Deadline",quick.deadline],
+
+        ["Salary",quick.salary],
+
+        ["Post",quick.posts],
+
+        ["Course",quick.course],
+
+        ["Selection Process",quick.selectionProcess]
+
+    ];
+
+
+    const wrapper =
+        document.createElement(
+            "div"
+        );
+
+
+    wrapper.className =
+        "ashub-quick-info";
+
+
+    let hasValue =
+        false;
+
+
+    fields.forEach(
+        function(field){
+
+            if(!field[1]){
+
+                return;
+
+            }
+
+
+            hasValue =
+                true;
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "ashub-quick-item";
+
+
+            const strong =
+                document.createElement(
+                    "strong"
+                );
+
+
+            strong.textContent =
+                field[0] +
+                ":";
+
+
+            item.appendChild(
+                strong
+            );
+
+
+            item.appendChild(
+                document.createTextNode(
+                    " " +
+                    field[1]
+                )
+            );
+
+
+            wrapper.appendChild(
+                item
+            );
+
+        }
+    );
+
+
+    return hasValue
+        ? wrapper
+        : null;
+
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+function showNoResults(){
+
+    results.innerHTML =
+        "";
+
+
+    const box =
+        document.createElement(
+            "div"
+        );
+
+
+    box.className =
+        "ashub-no-results";
+
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+
+    title.className =
+        "ashub-no-results-title";
+
+
+    title.textContent =
+        "No Careers and Opportunities Found";
+
+
+    const text =
+        document.createElement(
+            "p"
+        );
+
+
+    text.className =
+        "ashub-no-results-text";
+
+
+    text.textContent =
+        "Try another category or location !";
+
+
+    box.appendChild(
+        title
+    );
+
+
+    box.appendChild(
+        text
+    );
+
+
+    results.appendChild(
+        box
+    );
+
+}
+
+
+/* =========================================================
+   OPEN RESULT IN NEW TAB
+========================================================= */
+
+function openPost(url){
+
+    const safe =
+        safeURL(
+            url
+        );
+
+
+    if(!safe){
+
+        return;
+
+    }
+
+
+    const newWindow =
+        window.open(
+            safe,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+
+    if(newWindow){
+
+        try{
+
+            newWindow.opener =
+                null;
+
+        }
+
+        catch(error){}
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULT CLICK
+========================================================= */
+
+results?.addEventListener(
+    "click",
+    function(event){
+
+        const card =
+            event.target.closest(
+                ".ashub-post"
+            );
+
+
+        if(
+            !card ||
+            !results.contains(
+                card
+            )
+        ){
+
+            return;
+
+        }
+
+
+        openPost(
+            card.dataset.url
+        );
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD RESULT
+========================================================= */
+
+results?.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key !== "Enter" &&
+            event.key !== " "
+        ){
+
+            return;
+
+        }
+
+
+        const card =
+            event.target.closest(
+                ".ashub-post"
+            );
+
+
+        if(
+            !card ||
+            !results.contains(
+                card
+            )
+        ){
+
+            return;
+
+        }
+
+
+        event.preventDefault();
+
+
+        openPost(
+            card.dataset.url
+        );
+
+    }
+);
+
+
+/* =========================================================
+   OPEN SEARCH
+========================================================= */
+
+openButton?.addEventListener(
+    "click",
+    openSearchPopup
+);
+
+
+/* =========================================================
+   CLOSE SEARCH
+========================================================= */
+
+/*
+ * The popup is closed ONLY when this
+ * Close (×) button is clicked.
+ */
+
+closeButton?.addEventListener(
+    "click",
+    closeSearchPopup
+);
+
+
+/*
+ * IMPORTANT:
+ *
+ * There is intentionally NO overlay
+ * click event here.
+ *
+ * Therefore clicking outside the popup
+ * will NOT close it.
+ */
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+searchButton?.addEventListener(
+    "click",
+    searchPosts
+);
+
+
+/* =========================================================
+   ENTER ON CATEGORY
+========================================================= */
+
+categorySelect?.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter"
+        ){
+
+            event.preventDefault();
+
+            searchPosts();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ENTER ON LOCATION
+========================================================= */
+
+locationSelect?.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter"
+        ){
+
+            event.preventDefault();
+
+            searchPosts();
+        }
+    }
+);
+populateDropdowns();
+})();
+
+/* =========================================================
+   <!--theAShub Aspirants Post Cards--><!--theAShub Aspirants Post Cards--><!--theAShub Aspirants Post Cards-->
+   <!--theAShub Aspirants Post Cards--><!--theAShub Aspirants Post Cards--><!--theAShub Aspirants Post Cards-->
+   ========================================================= */
 (function(){
 "use strict";
 /* =========================
