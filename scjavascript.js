@@ -2679,9 +2679,9 @@ document.body.appendChild(
    ========================================================= */
 (function(){
 "use strict";
-var ASHUB_CONFIG={
+var LEARNER_CONFIG={
   feedUrl:
-    "https://www.theashub.in/feeds/posts/default/-/LearnersNotifications?max-results=50&alt=json-in-script&callback=ashubReceiveFeed",
+    "https://www.theashub.in/feeds/posts/default/-/LearnersNotifications?max-results=50&alt=json-in-script&callback=learnerReceiveFeed",
   aspirantsUrl:
     "https://www.theashub.in/p/learners.html",
   maxPosts:50
@@ -2947,13 +2947,13 @@ function buildMeta(data){
 
     html+=
 
-      '<div class="ashub-meta-item">'+
+      '<div class="learner-meta-item">'+
 
-        '<span class="ashub-meta-label">'+
+        '<span class="learner-meta-label">'+
           escapeHTML(field[0])+
         ':</span> '+
 
-        '<span class="ashub-meta-value">'+
+        '<span class="learner-meta-value">'+
           escapeHTML(value)+
         '</span>'+
 
@@ -3010,7 +3010,7 @@ function renderCustomCards(){
 
     var meta=
       card.querySelector(
-        ".ashub-meta"
+        ".learner-meta"
       );
 
 
@@ -3034,7 +3034,7 @@ function renderCustomCards(){
       url &&
       url!=="#" &&
       !card.querySelector(
-        ".ashub-career-card-link"
+        ".learner-career-card-link"
       )
     ){
 
@@ -3045,7 +3045,7 @@ function renderCustomCards(){
 
 
       link.className=
-        "ashub-career-card-link";
+        "learner-career-card-link";
 
 
       link.href=url;
@@ -3120,7 +3120,7 @@ function createAutomaticCard(entry){
       "article"
     );
   card.className=
-    "ashub-career-card";
+    "learner-career-card";
 
 
   card.setAttribute(
@@ -3140,7 +3140,7 @@ function createAutomaticCard(entry){
         "a"
       );
     cardLink.className=
-      "ashub-career-card-link";
+      "learner-career-card-link";
     cardLink.href=link;
     cardLink.target="_blank";
     cardLink.rel=
@@ -3157,7 +3157,7 @@ function createAutomaticCard(entry){
   /* THUMBNAIL */
   if(thumbnail){
     html+=
-      '<div class="ashub-career-thumb">'+
+      '<div class="learner-career-thumb">'+
         '<img src="'+
           escapeHTML(thumbnail)+
           '" alt="'+
@@ -3181,7 +3181,7 @@ function createAutomaticCard(entry){
 
     html+=
 
-      '<div class="ashub-career-date">'+
+      '<div class="learner-career-date">'+
         escapeHTML(date)+
       '</div>';
 
@@ -3192,7 +3192,7 @@ function createAutomaticCard(entry){
 
   html+=
 
-    '<div class="ashub-career-title">'+
+    '<div class="learner-career-title">'+
       escapeHTML(title);
 
 
@@ -3206,7 +3206,7 @@ function createAutomaticCard(entry){
 
     html+=
 
-      '<span class="ashub-new-tag">'+
+      '<span class="learner-new-tag">'+
         'NEW'+
       '</span>';
 
@@ -3227,10 +3227,10 @@ function createAutomaticCard(entry){
   html+=
 
     '<button '+
-      'class="ashub-copy-btn" '+
+      'class="learner-copy-btn" '+
       'type="button" '+
       'aria-label="Copy career information" '+
-      'onclick="ashubCopyCareerCard(event,this)">'+
+      'onclick="learnerCopyCareerCard(event,this)">'+
       '⧉'+
     '</button>';
 
@@ -3239,7 +3239,7 @@ function createAutomaticCard(entry){
 
   html+=
 
-    '<div class="ashub-meta">'+
+    '<div class="learner-meta">'+
       buildMeta(data)+
     '</div>';
 
@@ -3300,7 +3300,7 @@ function mergePosts(){
 
   var grid=
     document.getElementById(
-      "ashubCareersGrid"
+      "learnerCareersGrid"
     );
 
 
@@ -3479,12 +3479,12 @@ function mergePosts(){
    BLOGGER CALLBACK
    ========================= */
 
-window.ashubReceiveFeed=
+window.learnerReceiveFeed=
   function(json){
 
     var grid=
       document.getElementById(
-        "ashubCareersGrid"
+        "learnerCareersGrid"
       );
 
 
@@ -3510,14 +3510,14 @@ window.ashubReceiveFeed=
     entries=
       entries.slice(
         0,
-        ASHUB_CONFIG.maxPosts
+        LEARNER_CONFIG.maxPosts
       );
 
 
     /* REMOVE SKELETON */
 
     grid.querySelectorAll(
-      ".ashub-loading-card"
+      ".learner-loading-card"
     ).forEach(
       function(card){
 
@@ -3552,7 +3552,7 @@ window.ashubReceiveFeed=
 
         grid.innerHTML=
 
-          '<div class="ashub-career-empty">'+
+          '<div class="learner-career-empty">'+
             'No posts available right now.'+
           '</div>';
 
@@ -3590,7 +3590,7 @@ window.ashubReceiveFeed=
    COPY
    ========================= */
 
-window.ashubCopyCareerCard=
+window.learnerCopyCareerCard=
   function(event,button){
 
     if(event){
@@ -3604,7 +3604,7 @@ window.ashubCopyCareerCard=
 
     var card=
       button.closest(
-        ".ashub-career-card"
+        ".learner-career-card"
       );
 
 
@@ -3615,19 +3615,19 @@ window.ashubCopyCareerCard=
 
     var titleElement=
       card.querySelector(
-        ".ashub-career-title"
+        ".learner-career-title"
       );
 
 
     var descriptionElement=
       card.querySelector(
-        ".ashub-career-description"
+        ".learner-career-description"
       );
 
 
     var metaElements=
       card.querySelectorAll(
-        ".ashub-meta-item"
+        ".learner-meta-item"
       );
 
 
@@ -3703,7 +3703,7 @@ window.ashubCopyCareerCard=
 
     content+=
       "More details:\n"+
-      ASHUB_CONFIG.aspirantsUrl;
+      LEARNER_CONFIG.aspirantsUrl;
 
 
     if(
@@ -3715,14 +3715,14 @@ window.ashubCopyCareerCard=
         .writeText(content)
         .then(function(){
 
-          ashubShowCopied(
+          learnerShowCopied(
             button
           );
 
         })
         .catch(function(){
 
-          ashubFallbackCopy(
+          learnerFallbackCopy(
             content,
             button
           );
@@ -3731,7 +3731,7 @@ window.ashubCopyCareerCard=
 
     }else{
 
-      ashubFallbackCopy(
+      learnerFallbackCopy(
         content,
         button
       );
@@ -3745,7 +3745,7 @@ window.ashubCopyCareerCard=
    FALLBACK COPY
    ========================= */
 
-function ashubFallbackCopy(
+function learnerFallbackCopy(
   text,
   button
 ){
@@ -3786,7 +3786,7 @@ function ashubFallbackCopy(
     );
 
 
-    ashubShowCopied(
+    learnerShowCopied(
       button
     );
 
@@ -3811,7 +3811,7 @@ function ashubFallbackCopy(
    COPY SUCCESS
    ========================= */
 
-function ashubShowCopied(
+function learnerShowCopied(
   button
 ){
 
@@ -3830,7 +3830,7 @@ function ashubShowCopied(
 
   var toast=
     document.getElementById(
-      "ashubCopyToast"
+      "learnerCopyToast"
     );
 
 
@@ -3872,7 +3872,7 @@ var feedScript=
     "script"
   );
 feedScript.src=
-  ASHUB_CONFIG.feedUrl;
+  LEARNER_CONFIG.feedUrl;
 feedScript.async=true;
 document.body.appendChild(
   feedScript
