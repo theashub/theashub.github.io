@@ -1,3 +1,162 @@
+<!--Search Options Section--><!--Search Options Section-->
+<style>.ashub-search-area{width:100%;max-width:1200px;margin:20px auto;}
+.ashub-open-search-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:min(100%,420px);min-height:50px;margin:20px auto;padding:0 20px;border:1px solid #fac926;border-radius:10px;background:transparent;color:#212428;font-size:17px;font-weight:600;cursor:pointer;transition:transform .1s ease,box-shadow .1s ease;}
+.ashub-open-search-btn:hover{transform:translateY(-0.5px);box-shadow:0 3px 8px rgba(33,36,40,.14);}
+.ashub-open-search-btn:active{transform:scale(.98);}
+.ashub-search-popup{position:fixed;inset:0;z-index:999999;display:none;align-items:center;justify-content:center;padding:16px;}
+.ashub-search-popup.is-open{display:flex;}
+.ashub-popup-overlay{position:absolute;inset:0;background:rgba(33,36,40,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);}
+.ashub-popup-dialog{position:relative;z-index:2;width:min(880px,100%);max-height:90vh;overflow-y:auto;overscroll-behavior:contain;padding:24px;background:#fff;border:1px solid #fac926;border-radius:17px;box-shadow:0 20px 60px rgba(0,0,0,.24);}
+.ashub-popup-dialog.is-searching > *:not(.ashub-search-loading){filter:blur(4px);pointer-events:none;user-select:none;}
+.ashub-search-loading{position:absolute;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(255,255,255,.55);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);}
+.ashub-search-loading.is-visible{display:flex;}
+.ashub-search-loading-card{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:185px;padding:20px 24px;background:rgba(255,255,255,.97);border:1px solid #fac926;border-radius:15px;box-shadow:0 12px 35px rgba(33,36,40,.14);text-align:center;color:#212428;}
+.ashub-search-loading-card strong{font-size:15px;}
+.ashub-search-loading-card small{color:#777;font-size:11px;}
+.ashub-search-spinner{width:31px;height:31px;border:3px solid #e7e9eb;border-top-color:#fac926;
+border-radius:50%;animation:ashubSpin .7s linear infinite;}
+@keyframes ashubSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+.ashub-popup-close{position:absolute;top:11px;right:12px;z-index:30;width:37px;height:37px;border:0;border-radius:50%;background:#f1f2f3;color:#212428;font-size:27px;line-height:1;cursor:pointer;}
+.ashub-popup-close:hover{background:#fac926;}
+.ashub-popup-header{padding-right:45px;margin-bottom:18px;}
+.ashub-popup-header h2{margin:0 0 5px;font-size:20px;line-height:1.3;}
+.ashub-popup-header p{margin:0;line-height:1.5;}
+.ashub-popup-fields{display:grid;
+    grid-template-columns:
+        1fr
+        1fr
+        auto;
+    gap:10px;align-items:end;padding:15px;
+    background:#f8f9fa;border-radius:13px;}
+.ashub-field{min-width:0;}
+.ashub-field label{display:block;
+margin-bottom:7px;color:#212428;font-size:11px;font-weight:700;letter-spacing:.8px;}
+.ashub-select{width:100%;height:44px;padding:0 14px;border:1px solid #212428;border-radius:23px;outline:0;background:#fff;color:#212428;font-size:14px;cursor:pointer;}
+.ashub-select option{background:#212428;color:#fff;}
+.ashub-search-btn{height:44px;padding:0 21px;border-radius:23px;border:1px solid #212428;background:#fff;color:#212428;font-weight:700;cursor:pointer;white-space:nowrap;}
+.ashub-search-btn:hover{border:2px solid #fac926;}
+.ashub-search-btn:disabled{opacity:.55;cursor:not-allowed;}
+.ashub-results{margin-top:15px;}
+.ashub-post-list{display:flex;flex-direction:column;gap:10px;}
+.ashub-post{display:grid;
+grid-template-columns:
+        175px
+        minmax(0,1fr);gap:15px;
+    width:100%;
+    padding:10px;
+    border:1px solid #d8dadd;
+    border-radius:11px;
+    cursor:pointer;
+    outline:none;
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease;}
+.ashub-post:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(33,36,40,.08);border-color:#fac926;}
+.ashub-post:focus-visible,
+.ashub-open-search-btn:focus-visible,
+.ashub-search-btn:focus-visible,
+.ashub-select:focus-visible,
+.ashub-popup-close:focus-visible{
+    outline:3px solid rgba(250,201,38,.7);
+    outline-offset:2px;}
+.ashub-post-image-wrap{width:175px;height:120px;overflow:hidden;border-radius:8px;background:transparent;}
+.ashub-post-image{display:block;width:100%;height:100%;object-fit:cover;background:#f5f5f5;transition:transform .25s ease;}
+.ashub-post:hover .ashub-post-image{transform:scale(1.025);}
+.ashub-no-image{display:flex;align-items:center;justify-content:center;width:100%;height:100%;color:#999;font-size:11px;}
+.ashub-post-content{min-width:0;}
+.ashub-post-title{
+    margin:0 0 4px !important;
+    color:#212428 !important;
+    font-size:20px !important;
+    line-height:1.35 !important;
+    font-weight:700 !important;
+    overflow-wrap:anywhere;}
+.ashub-post-date{margin-bottom:1px;color:#b18b00;font-size:10px;}
+.ashub-quick-info{display:flex;flex-wrap:wrap;gap:4px 14px;}
+.ashub-quick-item{color:#555;font-size:12px;line-height:1.4;overflow-wrap:anywhere;}
+.ashub-quick-item strong{color:#212428;}
+.ashub-no-results{padding:38px 18px;
+    border:1px solid #e7e9eb;
+    border-radius:11px;
+    text-align:center;}
+.ashub-no-results-title{
+    margin:0 0 6px;
+    color:#212428;
+    font-size:16px;}
+.ashub-no-results-text{
+    margin:0;
+    color:#777;
+    font-size:12px;line-height:1.5;}
+body.ashub-popup-open{
+    overflow:hidden;}
+@media(max-width:900px){
+    .ashub-post{
+        grid-template-columns:
+            150px
+            minmax(0,1fr);
+    }
+    .ashub-post-image-wrap{
+        width:150px;
+        height:110px;
+    }
+}
+@media(max-width:700px){
+    .ashub-search-area{
+        margin:12px auto;
+    }
+    .ashub-search-popup{
+        padding:0;
+		margin:5px
+        align-items:flex-end;
+    }
+    .ashub-popup-dialog{
+        width:100%;
+        max-height:94vh;
+        padding:19px 12px;
+        border-radius:
+            17px 17px 0 0;
+    }
+    .ashub-popup-header h2{
+        font-size:20px;
+    }
+    .ashub-popup-fields{
+        grid-template-columns:1fr;
+        padding:12px;
+    }
+    .ashub-search-btn{
+        width:100%;
+    }
+    .ashub-post{
+        grid-template-columns:
+            92px
+            minmax(0,1fr);
+        gap:10px;
+        padding:8px;
+    }
+    .ashub-post-image-wrap{
+        width:92px;
+        height:82px;
+    }
+    .ashub-post-title{
+        font-size:13px;
+    }
+    .ashub-post-date{
+        font-size:9px;
+    }
+    .ashub-quick-info{
+        display:block;
+    }
+    .ashub-quick-item{
+        margin-bottom:2px;
+        font-size:10px;
+    }
+}
+</style>
 <!--theAShub Aspirants Cards--><!--theAShub Aspirants Cards--><!--theAShub Aspirants Cards-->
 <style>
 .ashub-careers-wrap{width:100%;max-width:1200px;margin:0 auto;padding:8px 5px;box-sizing:border-box;}
