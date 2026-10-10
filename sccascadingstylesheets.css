@@ -106,20 +106,27 @@ body.ashub-popup-open{
     }
 }
 @media(max-width:700px){
-    .ashub-search-area{
-        margin:12px auto;
-    }
+    .ashub-search-area{margin:12px auto;}
     .ashub-search-popup{
-        padding:0;
-		margin:5px
+        inset:0;
+        margin:0;
+        padding:0 5px 5px;
         align-items:flex-end;
+        justify-content:center;
+        box-sizing:border-box;
     }
     .ashub-popup-dialog{
+         box-sizing:border-box;
         width:100%;
+        max-width:100%;
         max-height:94vh;
+        max-height:94dvh;
+        margin:0;
         padding:19px 12px;
-        border-radius:
-            17px 17px 0 0;
+        overflow-x:hidden;
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+        border-radius:17px 17px 0 0;
     }
     .ashub-popup-header h2{
         font-size:20px;
@@ -132,18 +139,18 @@ body.ashub-popup-open{
         width:100%;
     }
     .ashub-post{
-        grid-template-columns:
-            92px
-            minmax(0,1fr);
+        box-sizing:border-box;
+        grid-template-columns:92px minmax(0,1fr);
         gap:10px;
         padding:8px;
-    }
+        }
+        
     .ashub-post-image-wrap{
         width:92px;
         height:82px;
     }
     .ashub-post-title{
-        font-size:13px;
+        font-size:15px !important;
     }
     .ashub-post-date{
         font-size:9px;
