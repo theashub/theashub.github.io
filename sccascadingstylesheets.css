@@ -534,17 +534,145 @@ body.learner-popup-open{
 }
 
 <!--theAShub Resources| Resources--><!--theAShub Resources| Resources--><!--theAShub Resources| Resources-->
-.theashubresources {display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 20px;padding: 4px 2px;max-width: 1200px;}
-.theashubresources-card {border: 1px solid #fac926;border-radius: 10px;padding: 10px;transition: all 0.3s ease;background: transparent;min-width: 0;}
-.theashubresources-card:hover {transform: translateY(-3px);box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);}
-.theashubresources-title {font-size: 17px !important;font-weight: 700;margin: 0 0 5px;}
-.theashubresources-bottom {display: flex;align-items: center;justify-content: space-between;gap: 12px;}
-.theashubresources-description {font-size: 16px;line-height: 1.6;margin: 0;flex: 1;}
-.theashubresources-link {display: inline-flex;align-items: center;justify-content: center;min-width: 32px;height: 32px;background-color: transparent;color: #212428;border-radius: 50%;border:1px solid #212428;text-decoration: none !important;font-size: 17px;transition: all 0.3s ease;flex-shrink: 0;}
-.theashubresources-link:hover {border:1px solid #fac926;color: #fac926;}
-@media (max-width: 900px) {
-  .theashubresources {grid-template-columns: repeat(2, minmax(0, 1fr));}
+/* ================================
+   theAShub Resources
+================================ */
+
+.theashubresources {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4px 2px;
+  box-sizing: border-box;
 }
+
+.theashubresources-card {
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #fac926;
+  border-radius: 10px;
+  background: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theashubresources-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.theashubresources-title {
+  margin: 0 0 5px !important;
+  padding: 0 !important;
+  color: #212428;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  line-height: 1.4;
+}
+
+.theashubresources-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.theashubresources-description {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #212428;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.theashubresources-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 32px;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #212428;
+  border: 1px solid #212428;
+  border-radius: 50%;
+  text-decoration: none !important;
+  font-size: 17px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.theashubresources-link:hover {
+  color: #fac926;
+  border-color: #fac926;
+}
+
+
+/* ================================
+   Tablet
+================================ */
+
+@media (max-width: 900px) {
+  .theashubresources {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+
+/* ================================
+   Mobile
+================================ */
+
 @media (max-width: 520px) {
-  .theashubresources {grid-template-columns: 1fr;padding: 20px 5px;gap: 15px;}
+  .theashubresources {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px 5px;
+  }
+
+  .theashubresources-card {
+    padding: 12px;
+  }
+}
+
+
+/* ================================
+   Small Mobile
+================================ */
+
+@media (max-width: 360px) {
+  .theashubresources {
+    gap: 12px;
+    padding: 8px 2px;
+  }
+
+  .theashubresources-card {
+    padding: 10px;
+  }
+
+  .theashubresources-title {
+    font-size: 16px !important;
+  }
+
+  .theashubresources-description {
+    font-size: 15px;
+  }
+
+  .theashubresources-link {
+    flex-basis: 30px;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
 }
