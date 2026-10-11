@@ -504,3 +504,32 @@ body.learner-popup-open{
     font-size:13.5px;
   }
 }
+
+
+<style>
+  .theashubcourses {display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 20px;padding: 20px 5px;max-width: 1200px;margin: 0 auto;}
+.theashubcourses-card {min-width: 0;overflow: hidden;border: 1px solid #fac926;border-radius: 12px;background: transparent;transition: transform 0.3s ease, box-shadow 0.3s ease;}
+.theashubcourses-card:hover {transform: translateY(-3px);box-shadow: 0 8px 20px rgba(33, 36, 40, 0.10);}
+.theashubcourses-thumbnail {display: block;width: 100%;aspect-ratio: 16 / 9;overflow: hidden;background: #fff;}
+.theashubcourses-thumbnail img {display: block;width: 100%;height: 100%;object-fit: cover;transition: transform 0.4s ease;}
+.theashubcourses-card:hover .theashubcourses-thumbnail img {transform: scale(1.03);}
+.theashubcourses-content {padding: 10px;}
+.theashubcourses-title {margin: 1px;color: #212428;font-size: 17px !important;font-weight: 700;line-height: 1.1;}
+.theashubcourses-description {margin: 1px;font-size: 15px;line-height: 1.3;}
+.theashubcourses-link {display: inline-block;margin: 1px;color: #212428;font-size: 14px;font-weight: 600;text-decoration: none !important;border-bottom: 1px solid #212428;transition: color 0.25s ease, border-color 0.25s ease;}
+.theashubcourses-link:hover {color: #fac926;border-color: #fac926;text-decoration: none !important;}
+.theashubcourses-link:focus-visible {outline: 2px solid #212428;outline-offset: 3px;}
+@media (max-width: 560px) {
+  .theashubcourses {
+    grid-template-columns: 1fr;
+    padding: 10px 5px;
+    gap: 16px;
+  }
+  .theashubcourses-content {
+    padding: 15px;
+  }
+  .theashubcourses-title {
+    font-size: 17px;
+  }
+}
+</style>
