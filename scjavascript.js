@@ -3210,7 +3210,7 @@ populateDropdowns();
    ========================= */
 var ASHUB_CONFIG={
   feedUrl:
-    "https://www.theashub.in/feeds/posts/default/-/AspirantsNotifications?max-results=50&alt=json-in-script&callback=ashubReceiveFeed",
+    "https://www.theashub.in/feeds/posts/default/-/AspirantsNotifications?max-results=30&alt=json-in-script&callback=ashubReceiveFeed",
   aspirantsUrl:
     "https://www.theashub.in/p/aspirants.html",
   maxPosts:50
