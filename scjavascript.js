@@ -4267,7 +4267,7 @@ document.body.appendChild(
 "use strict";
 var LEARNER_CONFIG={
   feedUrl:
-    "https://www.theashub.in/feeds/posts/default/-/LearnersNotifications?max-results=50&alt=json-in-script&callback=learnerReceiveFeed",
+    "https://www.theashub.in/feeds/posts/default/-/LearnersNotifications?max-results=30&alt=json-in-script&callback=learnerReceiveFeed",
   aspirantsUrl:
     "https://www.theashub.in/p/learners.html",
   maxPosts:50
